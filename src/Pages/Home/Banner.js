@@ -38,8 +38,8 @@ const Banner = () => {
                         <img src={banner1}
                             className="block w-full object-cover h-96 md:h-[33rem]"
                             alt="Computer Parts" />
-                        <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-80"></div>
-                        <div class="carousel-caption md:block absolute text-center">
+                        <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-80"></div>
+                        <div className="carousel-caption md:block absolute text-center">
                             <h5 className="lg:font-headings lg:text-4xl  text-md md:text-3xl font-semibold  text-white">Quality Without Compromise</h5>
                             <p className='pt-2 text-xs lg:text-2xl md:text-lg font-medium'>We try our heart and soul to provide best quality products available in the market because you deserve the best.</p>
                         </div>
@@ -50,12 +50,12 @@ const Banner = () => {
                         <img src={banner2}
                             className="block w-full object-cover h-96 md:h-[33rem]"
                             alt="Computer Parts" />
-                        <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-60"></div>
-                        {/* <div class="relative overflow-hidden bg-no-repeat bg-cover max-w-xs" style={{ 'backgroundPosition': '50%' }}>
+                        <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-60"></div>
+                        {/* <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs" style={{ 'backgroundPosition': '50%' }}>
                             <img src={banner1} alt='' />
-                            <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-50"></div>
+                            <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-50"></div>
                         </div> */}
-                        <div class="carousel-caption md:block absolute text-center">
+                        <div className="carousel-caption md:block absolute text-center">
                             <h5 className="lg:font-headings lg:text-4xl  text-md md:text-3xl font-semibold  text-white">Every Detail, Done Right.</h5>
                             <p className='pt-2 text-xs lg:text-2xl md:text-lg font-medium'>We leave no stone unturned to produce the qualityful, durable and stylish products for you.</p>
                         </div>
@@ -66,9 +66,9 @@ const Banner = () => {
                         <img src={banner3}
                             className="block w-full object-cover h-96 md:h-[33rem]"
                             alt="Computer Parts" />
-                        <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-80"></div>
+                        <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-80"></div>
 
-                        <div class="carousel-caption md:block absolute text-center">
+                        <div className="carousel-caption md:block absolute text-center">
                             <h5 className="lg:font-headings lg:text-4xl  text-md md:text-3xl font-semibold  text-white">Nothing Less Than The Best</h5>
                             <p className='pt-2 text-xs lg:text-2xl md:text-lg font-medium'>Our aim is to deliver excellent products with best price and genuine service to all of our customers. </p>
                         </div>
