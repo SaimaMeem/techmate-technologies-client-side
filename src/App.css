@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+/* header */
+.three:hover span {
+  height: 100%;
+}
+.two:hover span {
+  width: 45%;
+}
+@media screen and (max-width:991px) {
+  .ul-items {
+      top: 4em;
+      left: 0;
+      align-items: center;
+      width: 100%;
+  }
+}
+/* header */
