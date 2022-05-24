@@ -1,11 +1,13 @@
-import React from 'react';
+import { useEffect, useState } from "react";
 
 const useParts = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+    const [parts, setParts] = useState([]);
+    useEffect(() => {
+        fetch('parts.json')
+            .then(res => res.json())
+            .then(data => setParts(data))
 
+    }, [parts]);
+    return [parts, setParts];
+}
 export default useParts;
