@@ -11,7 +11,7 @@ const Parts = () => {
 
     return (
         <section className='my-14' id='fruits&vegetables'>
-            <h3 className="leading-tight text-3xl font-bold my-5 text-dark-blue">Fruits & Vegetables</h3>
+              <h3 className="leading-tight text-4xl font-bold my-10 font-headings">Available Parts</h3>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {
                     parts.slice(0,6).map(part => <Part key={part._id} part={part}></Part>)
