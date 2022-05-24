@@ -1,11 +1,16 @@
 import React from 'react';
+import Parts from './Parts/Parts';
 import Banner from './Banner';
+import BusinessSummary from './BusinessSummarys/BusinessSummarys';
+
 
 const Home = () => {
     return (
-        <div>
+        <section>
             <Banner></Banner>
-        </div>
+            <Parts></Parts>
+            <BusinessSummary></BusinessSummary>
+        </section>
     );
 };
 
