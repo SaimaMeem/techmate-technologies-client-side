@@ -17,7 +17,6 @@ module.exports = {
         'pastel-green-darker': '#006b32',
         'redd': '#ed1c24',
         'light-red': '#f25a5f',
-      
         'orange': '#FF914D',
         'orange-dark': '#fc8942',
         'orange-darker': '#f77728',
@@ -28,7 +27,7 @@ module.exports = {
         'lavender-darkest': '#781f91',
         'light-lavender': '#d191e3',
         'yellow': '#FBB61B',
-        'light-yellow': '#fae45f',
+        'light-yellow': '#f7c043',
         'dark-yellow': '#dea31f',
         'sky-blue':'#24BAF4',
         'dark-sky-blue':'#0491c7',
