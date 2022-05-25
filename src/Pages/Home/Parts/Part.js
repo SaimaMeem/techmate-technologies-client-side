@@ -26,7 +26,7 @@ const Part = ({ part }) => {
                             {description}
                         </p>
                         <button onClick={() => { navigateToUpdateStock(_id) }} type="button" data-mdb-ripple="true"
-                            data-mdb-ripple-color="light" className=" inline-block px-6 py-2.5 bg-pastel-green text-white font-bold text-sm leading-tight uppercase rounded shadow-md hover:bg-pastel-green-dark hover:shadow-lg focus:bg-pastel-green-dark focus:shadow-lg focus:outline-none focus:ring-0 active:bg-pastel-green-darker  active:shadow-lg transition duration-150 ease-in-out">Order Now&nbsp; </button>
+                            data-mdb-ripple-color="light" className=" inline-block px-6 py-2.5 bg-medium-yellow text-white font-bold text-sm leading-tight uppercase rounded shadow-md hover:bg-dark-yellow hover:shadow-lg focus:bg-dark-yellow focus:shadow-lg focus:outline-none focus:ring-0 active:bg-darker-yellow  active:shadow-lg transition duration-150 ease-in-out">Order Now&nbsp; </button>
 
                     </div>
                 </div>

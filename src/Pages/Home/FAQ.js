@@ -2,7 +2,7 @@ import React from 'react';
 import faqImage from '../../images/faq.jpg';
 const FAQ = () => {
     return (
-        <section className='my-10'>
+        <section className='my-10' id='faqs'>
             <h3 className="leading-tight text-4xl font-bold my-10 font-headings">FAQs </h3>
             <div className='grid grid-cols-1 lg:grid-cols-5 my-10 gap-10 mx-4 md:mx-20 justify-center items-center'>
                 <div class=" bg-white w-full col-span-3 order-2 lg:order-1">

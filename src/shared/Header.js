@@ -62,12 +62,19 @@ const Header = () => {
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                     <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                 </li>
-
                                 <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
                                     <Link
                                         className="nav-link text-black"
-                                        to='/home#fruits&vegetables'
-                                    >Computer Parts</Link>
+                                        to='/home#features'
+                                    >Features</Link>
+                                    <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
+                                    <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
+                                </li>
+                                <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
+                                    <Link
+                                        className="nav-link text-black"
+                                        to='/home#available-parts'
+                                    >Available Parts</Link>
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                     <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                 </li>
@@ -83,7 +90,15 @@ const Header = () => {
                                     <Link
                                         className="nav-link text-black"
                                         to='/home#business-summary'
-                                    >Business Summary</Link>
+                                    >Our Growth</Link>
+                                    <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
+                                    <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
+                                </li>
+                                <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
+                                    <Link
+                                        className="nav-link text-black"
+                                        to='/home#faqs'
+                                    >FAQs</Link>
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                     <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                 </li>
