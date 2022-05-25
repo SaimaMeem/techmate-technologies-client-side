@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         'dark-blue': '#0e293b',
         'darker-blue': '#091b26',
-        'light-off-white':'#F8F9FA',
+        'light-off-white': '#F8F9FA',
         'off-white': '#e8e9eb',
         'off-white-darker': '#dedddc',
         'pastel-green': '#00a14b',
@@ -32,12 +32,22 @@ module.exports = {
         'light-yellow': '#f7c043',
         'dark-yellow': '#ebaf2a',
         'darker-yellow': '#d99602',
-        'sky-blue':'#24BAF4',
-        'dark-sky-blue':'#0491c7',
-      }
+        'sky-blue': '#24BAF4',
+        'dark-sky-blue': '#0491c7',
+      },
+
+      animation: {
+        shine: "shine 3s",
+      },
+      keyframes: {
+        shine: {
+          "100%": { left: "105%" },
+        },
+      },
+
     },
   },
   plugins: [require('tw-elements/dist/plugin'),
-  // require("daisyui")
-],
+    // require("daisyui")
+  ],
 }

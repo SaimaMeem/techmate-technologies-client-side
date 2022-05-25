@@ -18,6 +18,7 @@ const Parts = () => {
                 }
             </div>
             <div className='my-5'>
+            
             {/* <Link to='/manageinventories' type="button" data-mdb-ripple="true"
                     data-mdb-ripple-color="light" className=" inline-block px-10 py-4 bg-lavender-dark text-white font-bold text-sm leading-tight uppercase rounded shadow-md hover:bg-lavender-darker hover:shadow-lg focus:bg-lavender-darker focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lavender-darkest active:shadow-lg transition duration-150 ease-in-out">Manage Inventories&nbsp;&nbsp;&nbsp;&nbsp;</Link> */}
             </div>
