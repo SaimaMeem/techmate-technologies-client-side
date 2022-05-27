@@ -1,9 +1,9 @@
 import React from 'react';
 import Review from './Review';
 import customer1 from '../../../images/customers/3.jpg';
-import customer2 from '../../../images/customers/1.jpg';
-import customer3 from '../../../images/customers/6.jpg';
-import customer4 from '../../../images/customers/7.jpg';
+// import customer2 from '../../../images/customers/1.jpg';
+// import customer3 from '../../../images/customers/6.jpg';
+// import customer4 from '../../../images/customers/7.jpg';
 const Reviews = () => {
     return (
         <section className='text-black my-14' id='reviews'>

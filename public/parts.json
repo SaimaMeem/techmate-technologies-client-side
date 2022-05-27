@@ -1,111 +1,66 @@
-
 [
     {
-        "_id":1,
-        "name": "Motherboard",
-        "image": "https://i.ibb.co/kQ9P3q9/graphics-card.jpg",
-        "price": "$4.31",
-        "available_quantity": "2500",
-        "min_quantity": "2500",
-        "description": "The tomato is consumed in diverse ways, including raw, as an ingredient in many dishes. While it is botanically a fruit, it is considered a vegetable for culinary purposes. The fruit is rich in lycopene, which may have beneficial health effects."
-    },
-    {
-        "_id":2,
-        "name": "Hard Drive",
-        "image": "https://i.ibb.co/h7VNk7v/hard-drive.jpg",
-        "price": "$5.59",
-        "available_quantity": "500",
-        "min_quantity": "500",
-        "description": "Capsicum is known as a sweet peppers. Sweet peppers are fruit pods on the capsicum plant. Yellow capsicum contains an impressive list of plant nutrients that found to have disease preventing and health promoting properties."
-    },
-    {
-        "_id":3,
-        "name": "RAM",
+        "name": "Gigabyte H310M H 8th Gen Micro ATX Motherboard",
         "image": "https://i.ibb.co/V3GzXGQ/motherboard.png",
-        "price": "$3.73",
-        "available_quantity": "3000",
-        "min_quantity": "3000",
-        "description": "The carrot is a root vegetable, typically orange in color.The fiber in carrots can help keep blood sugar levels under control. And they're loaded with vitamin A and beta-carotene. Carrots have calcium and vitamin K, both of which are important for bone health."
+        "price": "70.31",
+        "available_quantity": "2500",
+        "min_quantity": "500",
+        "description": "Gigabyte H310M H 8th Gen Micro ATX Motherboard is compatible with Intel (Socket LGA1151) i3, i5 & i7 processor. This 8-Channel HD Audio with High Quality Audio Capacitor board has dual channel DDR4 maximum 32GB memory and it has the capability of Ultra-Fast SATA 6Gb/s connectors and USB 3.1 Gen 1 interface. If we consider the graphics of this Anti-Sulfur Resistors Design board supports Intel HD graphics having the maximum resolution of 4096x2160@30 Hz for HDMI and 1920x1200@60 Hz for D-Sub port. This High Quality Audio Capacitors and Audio board has 3 x PCIe slot, GIGABYTE Exclusive 8118 Gaming LAN with Bandwidth Management,  Smart Fan 5 features Multiple Temperature Sensors and Hybrid Fan Headers with FAN STOP and all new GIGABYTE™ APP Center which is simple and easy use."
     },
     {
-        "_id":4,
-        "name": "Graphics Card",
-        "image": "https://i.ibb.co/JB2MZh4/watermelon.jpg",
-        "price": "$15",
-        "available_quantity": "1000",
-        "min_quantity": "1000",
-        "description": "Watermelon is a sweet and refreshing low calorie summer snack. It provides hydration and also essential nutrients. This large round fruit has a green rind and bright red flesh. It’s also packed with nutrients, including antioxidants and vitamins A and C."
+        "name": "Toshiba DT01ABA100V 1TB Surveillance Hard Drive",
+        "image": "https://i.ibb.co/h7VNk7v/hard-drive.jpg",
+        "price": "45.59",
+        "available_quantity": "3500",
+        "min_quantity": "700",
+        "description": "The Toshiba DT01ABA100V is a 1TB Surveillance Hard Drive that is suitable for video editing, set-top-box (STB), digital video recorders (DVR), and network video recorders (NVR) applications where large capacity, low power, and low acoustics are critical. It features a 3.5-inch, Low Profile Form Factor with up to 5,700 rpm speed. It comes with a SATA up to 6.0 Gbit/s interface. It has a max data transfer speed of 1443 Mbit/s. It has an average latency time of 5.27ms and a buffer size of 32 MiB. It is RoHS compatible. It comes with 2 years of warranty."
     },
     {
-        "_id":5,
-        "name": "Banana",
-        "image": "https://i.ibb.co/Sc7Y6WX/banana.jpg",
-        "price": "$2.05",
+        "name": "Transcend 4GB DDR4 2666Mhz Desktop RAM",
+        "image": "https://i.ibb.co/BjxgvVY/ram.jpg",
+        "price": "20.73",
+        "available_quantity": "2000",
+        "min_quantity": "250",
+        "description": "Transcend's memory modules offers excellent compatibility and fully-tested reliability to PC upgrade at an attractive price. Each memory module is rated at 2666MHz that enhances data transmission efficiency by higher bandwidth of up to 21GB/s. Being operated at a nominal voltage of just 1.2V, The Transcend's DDR4 U-DIMM RAM memory ensures that both operating temperature. This RAM is also featured with DIMM Type: U-DIMM, DRAM: 512Mx8, PCB Height: 1.23 inches. This new 4GB Transcend's DDR4-2666 U-DIMM ensures that both operating temperature and electrical load on the memory controller can be reduced in order to save more energy. This Transcend 4GB RAM has lifetime warranty."
+    },
+    {
+        "name": "Colorful GeForce GTX1050Ti 4G-V 4GB GDDR5 Graphics Card",
+        "image": "https://i.ibb.co/kQ9P3q9/graphics-card.jpg",
+        "price": "170",
+        "available_quantity": "10000",
+        "min_quantity": "2000",
+        "description": "Colorful GeForce GTX1050Ti 4G-V Comes with 4Gb capacity. This graphics card designed with Dual Fans, compact size, and a New Appearance Design. Benefiting from Turing architecture, amazing performance can be gained in games requiring higher needs. The Colorful Graphics card featured with Manufacturing Process 14nm, CUDA Cores 768, Core Clock 1290Mhz, Memory Clock 7000Mhz, Memory Bus Width 128bit, Memory Type GDDR5, Power Connector 6pin, TDP 75W. Here, Smart Adjustable Speed Fan Adjust rotate speed automatically and no noise in low load. Optimal Choice For High-Performance PC Platform GeForce GTX1050Ti 4G-V 4GB combines performance, design, and energy efficiency together, which makes it an ideal choice for a high-performance PC platform. It also has DVI, HDMI & DP Ports. The Latest Colorful GeForce GTX1050Ti 4G-V Graphics card comes with 2 years of warranty."
+    },
+    {
+        "name": "Transcend 230S 128GB 2.5 Inch SATA III SSD",
+        "image": "https://i.ibb.co/GkvKmZm/ssd.jpg",
+        "price": "2.05",
         "available_quantity": "4000",
         "min_quantity": "4000",
-        "description": "Bananas are one of the most popular fruits worldwide. They contain essential nutrients that can have a protective impact on health. Bananas are high in antioxidants, which we come into contact with every day, from the sunlight to the lotion you put on your skin."
+        "description": "Transcend TS1TSSD230S SSD uses the latest 3D NAND technology that features vertical, stacked expansion of storage cells. In this SSD, It has SATA III 6Gb/s interface, 560 MB/s maximum read sequential, 380 MB/s maximum write sequential with 1,000,000 hour(s) MTBF. This SSD Operating Temperature about 0°C (32°F) ~ 70°C (158°F). The System Requirement for this SSD are Microsoft Windows 7, Microsoft Windows 8, Microsoft Windows 10, Linux Kernel 2.6.31 or later. In this SSD TRIM & NCQ Command, S.M.A.R.T., DDR3 DRAM Cache, Advanced Garbage Collection, DevSleep Mode, RAID Engine and LDPC Coding technologies are used. It balso provides 03 years of warranty. By using high-quality flash memory and enhanced firmware algorithms, the SSD230S delivers greater performance and reliability. It comes with 5 years warranty."
     },
     {
-        "_id":6,
-        "name": "Blood Orange",
-        "image": "https://i.ibb.co/pyqQ4Wt/orange.jpg",
-        "price": "$4.55",
-        "available_quantity": "1500",
-        "min_quantity": "1500",
-        "description": "Blood Orange, a variety of orange, is a popular citrus fruit cultivated in hot climate. The fruit is rich in mineral salts and other ingredients of nutritive value such as iron, lime, phosphorus, and vital minerals. It is loaded with vitamin C and B complex."
-    },
-    {
-        "_id":7,
-        "name": "Pineapple",
-        "image": "https://i.ibb.co/GTrCB6D/pineapple.jpg",
-        "price": "$8.00",
-        "available_quantity": "3500",
-        "min_quantity": "3500",
-        "description": "Pineapple is an incredibly delicious, healthy tropical fruit. It’s packed with nutrients, antioxidants, and other helpful compounds that can protect against inflammation and disease. It’s commonly eaten baked, grilled, or freshly cut."
-    },
-    {
-        "_id":8,
-        "name": "Mango",
-        "image": "https://i.ibb.co/GW19yyP/mango.webp",
-        "price": "$3.00",
-        "available_quantity": "1500",
-        "min_quantity": "1500",
-        "description": "Mangoes are tropical stone fruits about the size of a grapefruit. The skin ranges in colour from yellow to green or red to green. The fruit has an inedible, hard stone in the middle. Mangoes are native to Southern Asia."
-    },
-    {
-        "_id":9,
-        "name": "Coconut",
-        "image": "https://i.ibb.co/xYrpWZp/coconut.jpg",
-        "price": "$5.50",
-        "available_quantity": "500",
-        "min_quantity": "500",
-        "description": "Coconuts grow on palm trees with the scientificname Cocos Nucifera.Coconut meat is the edible white flesh lining the inside of a coconut, also called the 'Kernel'. Coconut meat can be used to create coconut oil, coconut cream, coconut milk, and dried coconut."
-    },
-    {
-        "_id":10,
-        "name": "Potato",
-        "image": "https://i.ibb.co/9hDgSFm/potato.jpg",
-        "price": "$0.90",
-        "available_quantity": "3500",
-        "min_quantity": "3500",
-        "description": "Potatoes are a versatile root vegetable and a staple food in many households.THey are a good source of fiber, which is helful for weight loss by keeping people full longer. Fiber can help prevent heart disease by keeping cholesterol and blood sugar levels in check."
-    },
-    {
-        "_id":11,
-        "name": "Green Chili",
-        "image": "https://i.ibb.co/BGCCh2q/green-chili.webp",
-        "price": "$0.20",
+        "name": "Orico XD007-BK-BP External CD Driver",
+        "image": "https://i.ibb.co/Vw6kCkv/cd-driver.jpg",
+        "price": "28.55",
         "available_quantity": "7500",
-        "min_quantity": "7500",
-        "description": "Chilies, with their internal, edible seeds, are most definitely a fruit. They are rich in vitamins A, B6, and C, calcium, zinc, and so on. The anti-inflammatory properties of green chillies can also help to deal with arthritis or osteoporosis better."
+        "min_quantity": "1500",
+        "description": "Orico XD007-BK-BP External CD Driver is DVD-RW (USB3.0) CD Type. It is made with ABS Plastic Material. This CD Driver is featured with CD-ROM Read:24X/DVD-ROM Read:8X Speed and CD-R:24X, CD-RW:16X, DVD-R:8X, DVD-RW:16X Burn Speed. This Orico External CD Driver has a 2MB Capacity. It Supports Ultra DMA 5 PIO Transfer Mode 4, Buffer underrun free. This CD Drive also has 5 DVD Partition. This Orico External CD Driver comes with Laser WavelengthCD：783mm（typical, Laser PowerRead CD:1.2mW DVD:1.6mW objective lens, Input Current5V Reading/Writing 1.1/1.5A, 157*147*26mm Size with 380g( Net weight）Attach with 50cm USB A-Mirco cable weight. This new Orico External CD Driver (XD007-BK-BP) comes with 01-year warranty."
     },
     {
-        "_id":12,
-        "name": "Eggplant",
-        "image": "https://i.ibb.co/8YVc06n/eggplant.jpg",
-        "price": "$1.55",
-        "available_quantity": "5500",
-        "min_quantity": "5500",
-        "description": "The eggplant, or aubergine, provides fiber and a range of nutrients. This low calorie vegetable features in the Mediterranean diet.A serving of eggplant can provide at least 5% of a person’s daily requirement of fiber, copper, manganese."
+        "name": "Antec VP650 Plus 650W Non Modular Power Supply",
+        "image": "https://i.ibb.co/88vRPpD/power-supply.jpg",
+        "price": "52.55",
+        "available_quantity": "9500",
+        "min_quantity": "2500",
+        "description": "The new generation of VP650 PLUS is crafted for quality, performance and incredible value. This entry-level solution is rated from 500W to 650W, saving energy through its high efficiency of up to 85% efficient and is 80 PLUS Standard certified. Delivering up to 85% efficiency, the VP PLUS series utilizes active PFC, and provides efficiency during max and low loads—living up to the performance standards that we are known for. We stand by the quality and safety of the VP PLUS Power Supplies, offering 3-year parts and labor warranty and unlimited access to our incomparable technical support and customer service. The 120 mm Silent Fan is ideal for quiet computing and is designed for longer life, guaranteeing hours of operation. Features a Thermal Manager, an advanced low voltage fan control for optimal heat & noise management and will allow your PSU to stay at an optimal temperature."
+    },
+    {
+        "name": "AMD Ryzen Boxed Cooling Fan Original",
+        "image": "https://i.ibb.co/BnQhw5p/cooling-fan.jpg",
+        "price": "10.55",
+        "available_quantity": "7500",
+        "min_quantity": "2500",
+        "description": "AMD Ryzen Boxed Cooling Fans are the Original CPU coolers usually offered with an AMD Ryzen series of processors. This CPU supports the AMD Ryzen family of CPUs. Namely Ryzen 3, Ryzen 5, Ryzen 7, and Ryzen 9. The supported Socket of this cooler is AM4. This cooler has a 90 mm Fan and the size is 90x90x25mm. The CPU fan utilizes a Fluid Bearing. The Fan Life is 100000 hrs and the cooler's Power Interface is a 4pin PWM connector as a Power Interface. it is compatible with any AM4 Socket Compatible Processor. The Heatsink is a specialized AMD CPU Heatsink made with Aluminum. The Aluminium heatsink and 4pin power connector ensure maximum efficiency."
     }
 ]
