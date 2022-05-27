@@ -1,4 +1,5 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,8 +8,8 @@ const Part = ({ part }) => {
     // const descriptionList = description.split('\\r\\n');
     // console.log(descriptionList);
     const navigate = useNavigate();
-    const navigateToUpdateStock = (id) => {
-        navigate(`/fruits&vegetables/${id}`)
+    const navigateToPurchase = (id) => {
+        navigate(`/parts/purchase/${id}`)
     }
     return (
         <div>
@@ -36,8 +37,8 @@ const Part = ({ part }) => {
                         </p>
                         <h5 className="text-black text-base font-bold">Available Quantity: <span className='text-base font-medium'> {available_quantity}</span></h5>
                         <h5 className="text-black text-base font-bold mb-2">Minimum Quantity to Order:<span className='text-base font-medium'> {min_quantity}</span></h5>
-                        <button onClick={() => { navigateToUpdateStock(_id) }} type="button" data-mdb-ripple="true"
-                            data-mdb-ripple-color="light" className=" inline-block px-6 py-2.5 bg-medium-yellow text-white font-bold text-sm leading-tight uppercase rounded shadow-md hover:bg-dark-yellow hover:shadow-lg focus:bg-dark-yellow focus:shadow-lg focus:outline-none focus:ring-0 active:bg-darker-yellow  active:shadow-lg transition duration-150 ease-in-out">Order Now&nbsp; </button>
+                        <button onClick={() => { navigateToPurchase(_id) }} type="button" data-mdb-ripple="true"
+                            data-mdb-ripple-color="light" className=" inline-block px-6 py-2.5 bg-medium-yellow text-white font-bold text-sm leading-tight uppercase rounded shadow-md hover:bg-dark-yellow hover:shadow-lg focus:bg-dark-yellow focus:shadow-lg focus:outline-none focus:ring-0 active:bg-darker-yellow  active:shadow-lg transition duration-150 ease-in-out">Purchase Now&nbsp;  <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon></button>
                         <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
 
                     </div>
