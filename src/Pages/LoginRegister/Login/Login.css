@@ -1,0 +1,31 @@
+
+.or {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    color:grey;
+    margin: 2em 0;
+  }
+  
+  .or:after,
+  .or:before {
+      content: "";
+      display: block;
+      background: grey;
+      width: 60%;
+      height:1px;
+      margin: 0 10px;
+  }
+
+  @media screen and (max-width: 425px) {
+
+    .para{
+        font-size: 1em;
+    }
+    .or:after,
+    .or:before {
+        width: 50%;
+     
+    }
+  
+}

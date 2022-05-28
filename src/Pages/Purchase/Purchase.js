@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import PageTitle from '../../shared/PageTitle';
-// import '../Purchase/Purchase.css';
+
 const Purchase = () => {
     const { partId } = useParams();
     const [partDetails, setPartDetails] = useState([]);
@@ -16,12 +16,13 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => setPartDetails(data))
     }, [partDetails, partId]);
-    const { _id, name, price, available_quantity, min_quantity, image, description } = partDetails;
+    const { name, price, available_quantity, min_quantity, image, description } = partDetails;
     const [updateQuantity, setUpdateQuantity] = useState(0);
     const [updatePrice, setUpdatePrice] = useState(0);
     const availableQuantity = parseInt(available_quantity);
     const minQuantity = parseInt(min_quantity);
-    const initialPriceForMinQuantity = minQuantity * price;
+    const convertedPrice = parseFloat(price);
+    const initialPriceForMinQuantity = (minQuantity * convertedPrice).toFixed(2);
     useEffect(() => {
         setUpdateQuantity(min_quantity);
     }, [min_quantity]);
@@ -55,6 +56,7 @@ const Purchase = () => {
         console.log(event.target.value);
 
         setUpdateQuantity(event.target.value);
+        setUpdatePrice((parseInt(event.target.value) * parseFloat(price)).toFixed(2));
         if (event.target.value > availableQuantity) {
             toast.error(`You can't order more than ${availableQuantity} unit!`)
             setUpdateQuantity(availableQuantity);
@@ -69,7 +71,7 @@ const Purchase = () => {
 
     }
 
-
+    //ONSUBMIT
     const onSubmit = async data => {
         console.log(data);
         const quantity = document.getElementById('quantity').value;
@@ -128,8 +130,8 @@ const Purchase = () => {
         <section className='py-36 text-black'>
             <PageTitle title={`Purchase`}></PageTitle>
 
-            <div className="grid grid-cols-1 justify-center xl:grid-cols-5 xl:gap-6 xl:ml-10">
-                <div className="flex flex-col md:flex-row  justify-center mx-auto bg-white sm:px-6 md:px-16 lg:px-0 w-full col-span-3">
+            <div className="grid grid-cols-1 justify-center xl:grid-cols-8 xl:ml-10">
+                <div className="flex flex-col md:flex-row  justify-center mx-auto bg-white sm:px-6 md:px-16 lg:px-0 w-full col-span-5">
                     <img className="flex-none w-auto h-auto sm:h-72 sm:self-center md:w-72 lg:w-auto object-cover rounded-lg md:rounded-none md:rounded-l-lg md:shadow-lg mx-auto" src={image} alt="" />
                     <div className="p-6 flex flex-col justify-start text-left">
                         <h5 className="text-xl md:text-3xl font-bold mb-2">{name}</h5>
@@ -152,7 +154,7 @@ const Purchase = () => {
                 </div>
                 {/* user info form */}
 
-                <div className="flex flex-col p-6 md:rounded-lg md:shadow-lg bg-white w-full lg:w-2/3 h-full col-span-2 justify-center mx-auto">
+                <div className="flex flex-col p-6 lg:rounded-none lg:shadow-none rounded-lg shadow-lg xl:rounded-lg xl:shadow-lg bg-white w-full md:w-5/6 lg:w-2/3 h-full col-span-3 justify-center mx-auto">
                     <h3 className="leading-tight text-2xl font-bold mb-10 font-headings">User Information </h3>
                     <div className="flex flex-col w-full border-opacity-50">
                         <form onSubmit={handleSubmit(onSubmit)}>

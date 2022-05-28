@@ -4,28 +4,29 @@ import { HashLink as Link } from 'react-router-hash-link';
 import brandLogo from '../images/brandlogo1.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCaretDown, faSignInAlt, faSignOutAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-// import auth from '../../../firebase.init';
+import auth from '../firebase.init';
+import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 const Header = () => {
-    const user = "Saima Sultana";
-    let logOut;
-    //     const navigate = useNavigate();
-    //     const [user,loading] = useAuthState(auth);
-    //     // console.log(user?.displayName);
-    //     const logOut = () => {
-    //         signOut(auth);
-    //         navigate('/login');
-    //     };
-    //     if(loading){
-    //         // console.log("loading");
-    //         <section className="pt-36 pb-28">
-    //         <div className="text-center">
-    //             <div className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full text-yellow font-bold
-    // " role="status">
-    //                 <span className="visually-hidden">Loading...</span>
-    //             </div>
-    //         </div>
-    //     </section>
-    // }
+        const navigate = useNavigate();
+        const [user,loading] = useAuthState(auth);
+        // console.log(user?.displayName);
+        const logOut = () => {
+            signOut(auth);
+            navigate('/login');
+        };
+        if(loading){
+            // console.log("loading");
+            <section className="pt-36 pb-28">
+            <div className="text-center">
+                <div className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full text-dark-sky-blue font-bold
+    " role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </section>
+    }
     return (
         <div className='relative'>
             <nav

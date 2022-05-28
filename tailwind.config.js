@@ -34,6 +34,9 @@ module.exports = {
         'darker-yellow': '#d99602',
         'sky-blue': '#24BAF4',
         'dark-sky-blue': '#0491c7',
+        'spinner-color': '#00DFC0',
+        'paste': '#18dbc0',
+        'dark-paste': '#02b39a',
       },
 
       animation: {
