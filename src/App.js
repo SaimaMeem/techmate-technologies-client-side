@@ -11,12 +11,13 @@ import Footer from './shared/Footer';
 import Header from './shared/Header';
 import NotFound from './Pages/NotFound';
 import MyOrders from './Pages/Dashboard/Users/MyOrders';
+import Payment from './Pages/Dashboard/Users/Payment';
 
 function App() {
   return (
     <div className="App min-h-screen flex flex-col">
       <Header></Header>
-      <div className='block mx-auto'>
+      <div className='block'>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
@@ -26,6 +27,9 @@ function App() {
         </RequireAuth>}></Route>
         <Route path='/myorders' element={<RequireAuth>
           <MyOrders></MyOrders>
+        </RequireAuth>}></Route>
+        <Route path='/payment/:orderId' element={<RequireAuth>
+          <Payment></Payment>
         </RequireAuth>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
