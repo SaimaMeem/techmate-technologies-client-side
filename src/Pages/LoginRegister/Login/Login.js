@@ -1,5 +1,5 @@
 import { useSignInWithEmailAndPassword, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
-import React, { useRef } from 'react';
+import React from 'react';
 import '../Login/Login.css'
 import auth from '../../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -21,7 +21,7 @@ const Login = () => {
     const onSubmit = async (data) => {
         console.log(data)
         signInWithEmailAndPassword(data.email, data.password)
-        
+
     };
     let divElement;
     if (emailUser) { //token
@@ -42,7 +42,7 @@ const Login = () => {
             await sendPasswordResetEmail(email);
             toast.success('Sent email', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -53,7 +53,7 @@ const Login = () => {
         else {
             toast.error("Please enter your email address!", {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,

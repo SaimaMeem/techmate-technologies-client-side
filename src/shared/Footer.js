@@ -61,10 +61,10 @@ const Footer = () => {
                             <Link to="/aboutus" className="">About Us</Link>
                         </p>
                         <p className="flex justify-center mb-4">
-                            <Link to="/home#whychooseus" className="">Why Choose Us</Link>
+                            <Link to="/home#business-summary" className="">Our Growth</Link>
                         </p>
                         <p className="flex justify-center mb-4">
-                            <Link to="/home#testimonials" className="">Testimonials</Link>
+                            <Link to="/home#reviews" className="">Reviews</Link>
                         </p>
                         {/* <p className="mb-4 flex justify-center">
                             <a href="#!" className="">Another</a>

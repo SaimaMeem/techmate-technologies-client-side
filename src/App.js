@@ -9,6 +9,8 @@ import Purchase from './Pages/Purchase/Purchase';
 import Parts from './Pages/Home/Parts/Parts';
 import Footer from './shared/Footer';
 import Header from './shared/Header';
+import NotFound from './Pages/NotFound';
+import MyOrders from './Pages/Dashboard/Users/MyOrders';
 
 function App() {
   return (
@@ -22,8 +24,12 @@ function App() {
         <Route path='parts/purchase/:partId' element={<RequireAuth>
           <Purchase></Purchase>
         </RequireAuth>}></Route>
+        <Route path='/myorders' element={<RequireAuth>
+          <MyOrders></MyOrders>
+        </RequireAuth>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       </div>
     <Footer></Footer>

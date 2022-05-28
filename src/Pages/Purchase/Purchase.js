@@ -1,13 +1,16 @@
 import { faSave } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 // import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 import PageTitle from '../../shared/PageTitle';
 
 const Purchase = () => {
+    const [user] = useAuthState(auth);
     const { partId } = useParams();
     const [partDetails, setPartDetails] = useState([]);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -16,7 +19,7 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => setPartDetails(data))
     }, [partDetails, partId]);
-    const { name, price, available_quantity, min_quantity, image, description } = partDetails;
+    const {_id, name, price, available_quantity, min_quantity, image, description } = partDetails;
     const [updateQuantity, setUpdateQuantity] = useState(0);
     const [updatePrice, setUpdatePrice] = useState(0);
     const availableQuantity = parseInt(available_quantity);
@@ -32,40 +35,64 @@ const Purchase = () => {
     const decreaseQuantity = () => {
         let newQuantity = parseInt(updateQuantity) - 1;
         if (newQuantity < minQuantity) {
-            toast.error(`You can't order less than ${minQuantity} unit!`)
-            return;
+            if (newQuantity > 0) {
+                setUpdateQuantity(newQuantity);
+            }
+            setCheck(!check);
+            setTimeout(function () {
+                setCheck(check);
+                toast.error(`You can't order less than ${minQuantity} unit!`)
+                setUpdateQuantity(minQuantity);
+            }, 500);
         }
-        let newPrice = (newQuantity * parseFloat(price)).toFixed(2);
-
-        setUpdateQuantity(newQuantity);
-        setUpdatePrice(newPrice);
+        else {
+            let newPrice = (newQuantity * parseFloat(price)).toFixed(2);
+            setUpdateQuantity(newQuantity);
+            setUpdatePrice(newPrice);
+            setCheck(check);
+        }
     }
-
+    const [check, setCheck] = useState(false);
     const increaseQuantity = () => {
         let newQuantity = parseInt(updateQuantity) + 1;
         if (newQuantity > parseInt(availableQuantity)) {
+            setUpdateQuantity(newQuantity);
             console.log(newQuantity, availableQuantity);
-            toast.error(`You can't order more than ${availableQuantity} unit!`)
-            return;
+            setCheck(!check);
+            setTimeout(function () {
+                toast.error(`You can't order more than ${availableQuantity} unit!`)
+                setUpdateQuantity(availableQuantity);
+                setCheck(check);
+            }, 500);
         }
-        let newPrice = (newQuantity * parseFloat(price)).toFixed(2);
-        setUpdateQuantity(newQuantity);
-        setUpdatePrice(newPrice);
+        else {
+            let newPrice = (newQuantity * parseFloat(price)).toFixed(2);
+            setUpdateQuantity(newQuantity);
+            setUpdatePrice(newPrice);
+            setCheck(check);
+        }
     }
     const handleChangeQuantity = (event) => {
         console.log(event.target.value);
 
-        setUpdateQuantity(event.target.value);
+        setUpdateQuantity(parseInt(event.target.value));
         setUpdatePrice((parseInt(event.target.value) * parseFloat(price)).toFixed(2));
+        setCheck(check);
         if (event.target.value > availableQuantity) {
-            toast.error(`You can't order more than ${availableQuantity} unit!`)
-            setUpdateQuantity(availableQuantity);
-            return;
+            setCheck(!check);
+            setTimeout(function () {
+                toast.error(`You can't order more than ${availableQuantity} unit!`)
+                setUpdateQuantity(availableQuantity);
+                setCheck(check);
+            }, 500);
         }
         if (event.target.value < minQuantity) {
-            toast.error(`You can't order less than ${minQuantity} unit!`)
-            setUpdateQuantity(minQuantity);
-            return;
+            setCheck(!check);
+            setTimeout(function () {
+                toast.error(`You can't order less than ${minQuantity} unit!`)
+                setUpdateQuantity(minQuantity);
+                setCheck(check);
+            }, 500);
         }
 
 
@@ -80,10 +107,13 @@ const Purchase = () => {
 
         const updatedPart = { available_quantity: updatedQuantity.toString() };
         const order = {
-            username: data.name,
-            email: data.email,
+            username: user.displayName,
+            email: user.email,
             contact: data.contact,
             address: data.address,
+            part_id:_id,
+            part_name: name,
+            part_image:image,
             order_quantity: quantity,
             total_price: total,
         }
@@ -161,28 +191,14 @@ const Purchase = () => {
                             <div className="form-group mb-6">
                                 <div className="form-floating w-full">
 
-                                    <input type="text" className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="name" placeholder="Username" {...register("name", {
-                                        required: {
-                                            value: true,
-                                            message: 'Username is required'
-                                        }
-                                    }
-                                    )} />
-                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                    <input type="text" className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="name" placeholder="Username" value={user.displayName} disabled readOnly />
                                     <label htmlFor="name" className="text-gray-700">Username</label>
                                 </div>
                             </div>
                             <div className="form-group mb-6">
                                 <div className="form-floating w-full">
 
-                                    <input type="email" className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="email" placeholder="Email Address" {...register("email", {
-                                        required: {
-                                            value: true,
-                                            message: 'Email address is required'
-                                        }
-                                    }
-                                    )} />
-                                    {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                    <input type="email" className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="email" placeholder="Email Address" value={user.email} disabled readOnly />
                                     <label htmlFor="email" className="text-gray-700">Email Address</label>
                                 </div>
                             </div>
@@ -232,7 +248,7 @@ const Purchase = () => {
                                 <h5 className="flex items-center  text-md font-semibold mb-2 text-right">Total: <span className=' text-2xl font-bold text-dark-sky-blue'> &nbsp;$</span> <input type="text" className="form-control  py-1.5 text-2xl w-auto font-bold bg-white text-dark-sky-blue focus:outline-none focus:border-none cursor-default active:border-none" id="total" value={updatePrice || 0} readOnly></input> </h5>
                             </div>
                             <button type="submit" data-mdb-ripple="true"
-                                data-mdb-ripple-color="light" className="ml-auto mt-4 lg:mt-0 inline-block px-8 py-2.5 bg-pastel-green text-white font-bold text-sm leading-tight rounded shadow-md hover:bg-pastel-green-dark hover:shadow-lg focus:bg-pastel-green-dark focus:shadow-lg focus:outline-none focus:ring-0 active:bg-pastel-green-darker active:shadow-lg transition duration-150 ease-in-out"> Place Order &nbsp;&nbsp;<FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>
+                                data-mdb-ripple-color="light" className="ml-auto mt-4 lg:mt-0 inline-block px-8 py-2.5 bg-pastel-green text-white font-bold text-sm leading-tight rounded shadow-md hover:bg-pastel-green-dark hover:shadow-lg focus:bg-pastel-green-dark focus:shadow-lg focus:outline-none focus:ring-0 active:bg-pastel-green-darker active:shadow-lg transition duration-150 ease-in-out disabled:bg-slate-600" disabled={check}> Place Order &nbsp;&nbsp;<FontAwesomeIcon icon={faSave}></FontAwesomeIcon></button>
                         </form>
                     </div>
                 </div>

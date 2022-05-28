@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
 import registerImage from '../../images/register.jpg';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -18,9 +17,6 @@ const Register = () => {
     const [sendEmailVerification, sending, errorEmailVerification] = useSendEmailVerification(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     let divElement;
-    const usernameRef = useRef('');
-    const emailRef = useRef('');
-    const passwordRef = useRef('');
     // const [token] = useToken(user);
     const onSubmit = async data => {
         console.log(data)
@@ -84,23 +80,23 @@ const Register = () => {
                         </div>
 
                         <div className="form-floating m-3 w-auto">
-               
-                                <input type="password" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="password" aria-describedby="password" placeholder="Enter Password" {...register("password", {
-                                    required: {
-                                        value: true,
-                                        message: 'Password is required'
-                                    },
-                                    minLength: {
-                                        value: 6,
-                                        message: "Password must have at least 6 characters"
-                                    }
-                                }
-                                )} />
 
-                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500 font-semibold">{errors.password.message}</span>}
-                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500 font-semibold">{errors.password.message}</span>}
-                                <label htmlFor="password" className="text-gray-700">Password</label>
-                           
+                            <input type="password" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="password" aria-describedby="password" placeholder="Enter Password" {...register("password", {
+                                required: {
+                                    value: true,
+                                    message: 'Password is required'
+                                },
+                                minLength: {
+                                    value: 6,
+                                    message: "Password must have at least 6 characters"
+                                }
+                            }
+                            )} />
+
+                            {errors.password?.type === 'required' && <span className="label-text-alt text-red-500 font-semibold">{errors.password.message}</span>}
+                            {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500 font-semibold">{errors.password.message}</span>}
+                            <label htmlFor="password" className="text-gray-700">Password</label>
+
 
                         </div>
 
