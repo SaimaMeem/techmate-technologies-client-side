@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import registerImage from '../../images/register.jpg';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -21,10 +21,37 @@ const Register = () => {
     const onSubmit = async data => {
         console.log(data)
         await createUserWithEmailAndPassword(data.email, data.password);
-        await updateProfile({ displayName: data.name });
+        await updateProfile({
+            displayName: data.name,
+            photoURL: 'https://i.ibb.co/QPVQmtf/users.png'
+        });
         await sendEmailVerification();
         console.log('Updated profile');
         navigate('/home');
+        //POST
+        const userDetails = {
+            username: data.name,
+            image: user?.photoURL || `https://i.ibb.co/QPVQmtf/users.png`,
+            email: data.email,
+        }
+        await fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                // authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(userDetails),
+        })
+            .then(res => res.json())
+            .then(inserted => {
+                if (inserted.insertedId) {
+                    console.log('New user')
+                }
+                else {
+                    console.log('error')
+                }
+            })
+  
 
     };
 

@@ -20,7 +20,7 @@ const Login = () => {
 
     const onSubmit = async (data) => {
         console.log(data)
-        signInWithEmailAndPassword(data.email, data.password)
+        signInWithEmailAndPassword(data.email, data.password);
 
     };
     let divElement;
