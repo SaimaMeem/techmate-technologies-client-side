@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 const Header = () => {
+    
         const navigate = useNavigate();
         const [user,loading] = useAuthState(auth);
         // console.log(user?.displayName);
@@ -58,7 +59,7 @@ const Header = () => {
                         </Link>
                     </div>
                     <div className="container-fluid">
-                        <div className="collapse navbar-collapse flex-grow items-center justify-center" id="navbarSupportedContent">
+                        <div className="collapse navbar-collapse flex-grow items-center justify-center" aria-hidden="true" id="navbarSupportedContent">
                             <ul className="navbar-nav flex flex-col list-style-none   absolute z-200 transition-all ul-items bg-light-off-white shadow-lg md:shadow-none text-black">
                                 <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
                                     <Link className="nav-link text-black" to='/home'>Home</Link>

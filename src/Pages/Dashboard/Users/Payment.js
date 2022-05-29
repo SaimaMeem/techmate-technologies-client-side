@@ -43,7 +43,7 @@ const Payment = () => {
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-center w-full'>
                         <div className='w-full px-10'>
                         <h3 className="leading-tight text-xl font-bold py-3"> User Information</h3>
-                        <div className='shadow-lg rounded-lg p-6'>
+                        <div className='shadow-lg rounded-lg p-6 border-2'>
                             <div className="form-group mb-6">
                                 <div className="form-floating w-full">
 
@@ -78,15 +78,15 @@ const Payment = () => {
                         <div className='w-full'>
                             <div>
                                 <h3 className="leading-tight text-xl font-bold py-3"> Payment Details</h3>
-                                <div className="flex  justify-center">
-                                    <div className='rounded-lg bg-white shadow-lg'>
+                                <div className="flex justify-center">
+                                    <div className='rounded-lg bg-white shadow-lg  border-2'>
                                         <div className="flex flex-col md:flex-row md:max-w-xl  justify-center items-center">
-                                            <img className=" h-32 w-32 object-cover rounded-t-lg md:rounded-none md:rounded-l-lg px-3" src={order?.part_image} alt="" />
+                                            <img className=" h-1/3 w-1/3 object-cover rounded-t-lg md:rounded-none md:rounded-l-lg px-3" src={order?.part_image} alt="" />
                                             <div className="p-6 flex flex-col justify-start">
-                                                <h5 className="text-gray-900 text-lg font-bold mb-2">{order?.part_name}</h5>
+                                                <h5 className="text-gray-900 text-lg font-bold mb-2 text-left">{order?.part_name}</h5>
                                                 <div className='flex items-center justify-between space-x-3'>
                                                     <h5 className="md:text-lg font-bold mb-2 text-left"> Quantity:  <span className='md:text-lg font-semibold'>{order?.order_quantity}</span></h5>
-                                                    <h5 className="md:text-md font-bold mb-2 text-right">Total Price:  <span className='md:text-md font-semibold'>${order?.total_price}</span></h5>
+                                                    <h5 className="md:text-md font-bold mb-2 text-right">Total Price:  <span className='md:text-lg font-semibold'>${order?.total_price}</span></h5>
                                                 </div>
                                             </div>
                                         </div>
