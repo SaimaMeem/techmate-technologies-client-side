@@ -18,7 +18,7 @@ const MyOrders = () => {
     const [orders, setOrders] = useOrders(email);
     const navigate = useNavigate();
     const navigateToPurchase = (id) => {
-        navigate(`/orders/purchase/${id}`)
+        navigate(`/parts/purchase/${id}`)
     }
     const navigateToPay = (id) => {
         navigate(`/payment/${id}`)

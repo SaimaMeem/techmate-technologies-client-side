@@ -11,7 +11,7 @@ import PageTitle from '../../shared/PageTitle';
 const MyProfile = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
-    const [users, setUsers] = useUsers(email);
+    const [users] = useUsers(email);
     // console.log(users);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
