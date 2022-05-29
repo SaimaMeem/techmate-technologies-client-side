@@ -13,7 +13,7 @@ import useOrders from '../../../hooks/useOrders';
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
-    const [show,setShow]=useState(false);
+    const [show, setShow] = useState(false);
     const email = user?.email;
     const [orders, setOrders] = useOrders(email);
     const navigate = useNavigate();
@@ -23,11 +23,7 @@ const MyOrders = () => {
     const navigateToPay = (id) => {
         navigate(`/payment/${id}`)
     }
-    let divElement;
-    const checkTransactionId = (transactionId) => {
-        console.log(transactionId);
-       divElement = `<p className="ml-auto mt-4 uppercase lg:mt-0 inline-block px-8 py-2.5 bg-pastel-green text-white font-bold text-sm leading-tight rounded shadow-md hover:bg-pastel-green-dark hover:shadow-lg focus:bg-pastel-green-dark focus:shadow-lg focus:outline-none focus:ring-0 active:bg-pastel-green-darker active:shadow-lg transition duration-150 ease-in-out disabled:bg-slate-600">${transactionId}</p>`;
-    }
+
     // console.log(email);
     let count = 1;
     const [orderId, setOrderId] = useState(null);
@@ -66,17 +62,18 @@ const MyOrders = () => {
                 }
             })
     };
+
     return (
         <section>
-            <PageTitle title={'My Orders'}></PageTitle>
-            <div className='pt-36 pb-24'>
-                <h3 className="leading-tight text-3xl font-bold">  My Orders</h3>
-                <div className="flex flex-col mt-5">
+            <PageTitle title={'Dashboard - My Orders'}></PageTitle>
+            <div className='pt-1 pb-24'>
+                <h3 className="leading-tight text-2xl font-bold mb-2">  My Orders</h3>
+                <div className="flex flex-col justify-center">
                     <div className="overflow-x-auto sm:mx-6 lg:mx-8">
                         <div className="py-4 inline-block min-w-full sm:px-6 lg:px-8">
-                            <div className="overflow-hidden">
+                            <div className="overflow-hidden  rounded-lg shadow-lg">
                                 <table className="min-w-full text-center">
-                                    <thead className="border-b bg-darker-yellow text-white font-semibold">
+                                    <thead className="border-b bg-gray-800 text-white font-semibold">
                                         <tr className='border'>
                                             <th scope="col" className="text-sm py-4 px-2  border-r">
                                                 SI No.
@@ -117,17 +114,18 @@ const MyOrders = () => {
                                                         ${order.total_price}
                                                     </td>
                                                     <td className="text-lg font-medium px-6 py-2 whitespace-nowrap border-r">
-                                                        <button className='text-redd' data-bs-toggle="modal" data-bs-target="#staticBackdrop" type='' onClick={() => { displayModal(order._id, order.part_name) }} ><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></button>
+                                                        <button className='text-redd disabled:text-gray-400 disabled:cursor-not-allowed' data-bs-toggle={order?.paid ? 'collapse' : "modal"}
+                                                            data-bs-target="#staticBackdrop" type='' onClick={() => { displayModal(order._id, order.part_name) }} disabled={order.paid}><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></button>
 
                                                     </td>
                                                     <td className="text-lg font-medium px-6 py-2 whitespace-nowrap border-r">
                                                         {(order?.order_quantity && !order?.paid) &&
                                                             <button className='text-darker-sky-blue' onClick={() => { navigateToPay(order?._id) }} ><FontAwesomeIcon icon={faCreditCard}></FontAwesomeIcon></button>}
                                                         {(order?.order_quantity && order?.paid) && <div>
-                                                            <button onClick={()=>{setShow(!show)}} className='text-pastel-green-dark  transition duration-150 ease-in-out'  ><FontAwesomeIcon icon={faReceipt}></FontAwesomeIcon></button>
-                                                          {show &&   <p className='text-pastel-green-dark font-bold text-sm  transition duration-150 ease-in-out '><span>Transaction Id:</span>{order?.transactionId}</p>}
+                                                            <button onClick={() => { setShow(!show) }} className='text-pastel-green-dark  transition duration-150 ease-in-out'  ><FontAwesomeIcon icon={faReceipt}></FontAwesomeIcon></button>
+                                                            {show && <p className='text-pastel-green-dark font-bold text-sm  transition duration-150 ease-in-out '><span>Transaction Id:</span>{order?.transactionId}</p>}
                                                         </div>}
-                                                       
+
                                                     </td>
 
                                                 </tr>

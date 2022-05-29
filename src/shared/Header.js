@@ -44,6 +44,7 @@ const Header = () => {
                     >
                         <FontAwesomeIcon icon={faBars} />
                     </button>
+                    
                     <div className="container-fluid">
                         <Link className="flex items-center text-black mt-2 lg:mt-0 ml:20 pl-6 sm:pl-16 lg:ml-0" to="/home">
                             <img className="hidden mr-2 sm:block" src={brandLogo} style={{ height: "40px" }} alt="" loading="lazy" />
@@ -87,14 +88,7 @@ const Header = () => {
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                     <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                 </li> */}
-                                <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
-                                    <Link
-                                        className="nav-link text-black"
-                                        to='/home#business-summary'
-                                    >Our Growth</Link>
-                                    <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
-                                    <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
-                                </li>
+                              
                                 <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
                                     <Link
                                         className="nav-link text-black"
@@ -106,8 +100,16 @@ const Header = () => {
                                 <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
                                     <Link
                                         className="nav-link text-black"
-                                        to='/aboutus'
+                                        to='/home#reviews'
                                     >Reviews</Link>
+                                    <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
+                                    <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
+                                </li>
+                                <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
+                                    <Link
+                                        className="nav-link text-black"
+                                        to='/dashboard'
+                                    >Dashboard</Link>
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                     <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                 </li>

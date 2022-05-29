@@ -1,0 +1,26 @@
+[
+    {
+        "username": "Alexa Gomez",
+        "email": "alexa@gmail.com",
+        "image": "https://i.ibb.co/Pzhf4Xj/6.jpg",
+        "address": "New York",
+        "comment": "Technomate Technologies is one of the best place for computer components. Their products are good and they were very nice to my team. The price is reasonable and after sales, services are also good.",
+        "rating": 5
+    },
+{
+        "username": "Mark Bing",
+        "email": "mark@gmail.com",
+        "image": "https://i.ibb.co/X4DSHs1/1.jpg",
+        "address": "New Jersey",
+        "comment": "Their service quality is very good, and so friendly as well. They have huge collection of computer parts. If you need a product which is not in stock they will bring those things in seven days with your commitment.",
+        "rating": 4
+    },
+{
+        "username": "Trisha Cooper",
+        "email": "trisha@gmail.com",
+        "image": "https://i.ibb.co/T8KHg72/7.jpg",
+        "address": "Texas",
+        "comment": "Bad service. Sales person were not cooperative enough when it comes to after sales services. If you don't need any service after purchasing a product then I'd recommend this shop.",
+        "rating": 3
+    }
+]

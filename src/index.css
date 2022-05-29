@@ -13,6 +13,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.on {
+  color: rgb(247,144,40);
+}
+.off {
+  color: gray;
+}
 
 /* font-family: 'Bebas Neue', cursive;
 font-family: 'Cabin Condensed', sans-serif;

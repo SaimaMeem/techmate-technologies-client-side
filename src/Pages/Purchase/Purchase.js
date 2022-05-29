@@ -19,7 +19,7 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => setPartDetails(data))
     }, [partDetails, partId]);
-    const {_id, name, price, available_quantity, min_quantity, image, description } = partDetails;
+    const { _id, name, price, available_quantity, min_quantity, image, description } = partDetails;
     const [updateQuantity, setUpdateQuantity] = useState(0);
     const [updatePrice, setUpdatePrice] = useState(0);
     const availableQuantity = parseInt(available_quantity);
@@ -111,9 +111,9 @@ const Purchase = () => {
             email: user.email,
             contact: data.contact,
             address: data.address,
-            part_id:_id,
+            part_id: _id,
             part_name: name,
-            part_image:image,
+            part_image: image,
             order_quantity: quantity,
             total_price: total,
         }

@@ -3,15 +3,15 @@ import React, { useEffect, useState } from 'react';
 import PageTitle from '../../../shared/PageTitle';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../firebase.init';
-import { useNavigate, useParams } from 'react-router-dom';
+// import { useAuthState } from 'react-firebase-hooks/auth';
+// import auth from '../../../firebase.init';
+import { useParams } from 'react-router-dom';
 import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe('pk_test_51L1mjLJ060ZXR6VReDC0EF3g5vF4hbWnGpspKGa0o8xNB5Rjww6VD66Sj2ZGHhUvGCbqT7s8qBGpKLsyh1HhfqSZ00twD4WKrX');
 
 const Payment = () => {
     const { orderId } = useParams();
-    const [user] = useAuthState(auth);
+    // const [user] = useAuthState(auth);
     const [order, setOrder] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/orders/${orderId}`, {
@@ -41,8 +41,9 @@ const Payment = () => {
 
                 <div className="md:mx-40 mx-10">
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-center w-full'>
-                        <div className='w-full'>
-                            <h3 className="leading-tight text-xl font-bold py-3"> User Information</h3>
+                        <div className='w-full px-10'>
+                        <h3 className="leading-tight text-xl font-bold py-3"> User Information</h3>
+                        <div className='shadow-lg rounded-lg p-6'>
                             <div className="form-group mb-6">
                                 <div className="form-floating w-full">
 
@@ -71,6 +72,8 @@ const Payment = () => {
                                     <label htmlFor="address" className="text-gray-700">Address </label>
                                 </div>
                             </div>
+                        </div>
+                        
                         </div>
                         <div className='w-full'>
                             <div>
