@@ -11,6 +11,18 @@ const AllUsers = () => {
         }
     })
         .then(res => res.json()))
+        if(isLoading){
+            return <>
+            <section className="pt-36 pb-28">
+                 <div className="text-center">
+                     <div className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full text-dark-sky-blue font-bold
+         " role="status">
+                         <span className="visually-hidden">Loading...</span>
+                     </div>
+                 </div>
+             </section>
+         </>
+        }
     const makeAdmin = (email) => {
         fetch(`http://localhost:5000/user/admin/${email}`,
             {
@@ -20,15 +32,19 @@ const AllUsers = () => {
                     'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 },
             })
-            .then(res =>{if(res.status ===400){
-                toast.error("Failed to make an Admin!")
-            }})
+            .then(res => {
+                if (res.status === 400) {
+                    toast.error("Failed to make an Admin!")
+                }
+                return res.json();
+            })
             .then(data => {
-                if(data.modifiedCount){
+                console.log(data);
+                if(data.modifiedCount ){
                     refetch();
                     toast.success(`Successfully made an Admin!`);
                 }
-           
+
             })
     }
     if (isLoading) {

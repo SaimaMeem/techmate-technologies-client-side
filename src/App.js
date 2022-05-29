@@ -6,7 +6,7 @@ import Login from './Pages/LoginRegister/Login/Login';
 import Register from './Pages/LoginRegister/Register';
 import RequireAuth from './Pages/LoginRegister/RequireAuth';
 import RequireAdmin from './Pages/LoginRegister/RequireAdmin';
-import RequireOnlyUser from './Pages/LoginRegister/RequireOnlyUser';
+import RequireOnlyUser from './Pages/LoginRegister/RequireUser';
 import Purchase from './Pages/Purchase/Purchase';
 import Parts from './Pages/Home/Parts/Parts';
 import Footer from './shared/Footer';
