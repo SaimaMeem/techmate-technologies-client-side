@@ -9,11 +9,12 @@ import { toast } from 'react-toastify';
 import PageTitle from '../../../shared/PageTitle';
 import Socials from '../Socials';
 import { useForm } from 'react-hook-form';
+import useToken from '../../../hooks/useToken';
 const Login = () => {
     const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
-    // const [token] = useToken(emailUser);
+    const [token] = useToken(emailUser);
     const navigate = useNavigate();
     const location = useLocation();
     let from = location?.state?.from?.pathname || "/";

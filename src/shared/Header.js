@@ -14,6 +14,7 @@ const Header = () => {
         // console.log(user?.displayName);
         const logOut = () => {
             signOut(auth);
+            localStorage.removeItem('accessToken');
             navigate('/login');
         };
         if(loading){

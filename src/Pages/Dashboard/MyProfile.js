@@ -17,12 +17,13 @@ const MyProfile = () => {
     const onSubmit = async data => {
         console.log(data);
         const userDetails = {
+            username:user?.displayName,
             address: data?.address || users?.address,
             contact: data?.contact || users?.contact,
         }
         console.log(userDetails);
         //POST
-        fetch(`http://localhost:5000/users?email=${email}`, {
+        fetch(`http://localhost:5000/users/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -33,7 +34,7 @@ const MyProfile = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.modifiedCount || data.upsertedCount) {
+                if (data.result.modifiedCount || data.result.upsertedCount) {
                     toast.success('Your Profile is updated')
                     reset();
                 }

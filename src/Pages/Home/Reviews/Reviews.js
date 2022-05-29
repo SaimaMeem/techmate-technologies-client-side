@@ -24,7 +24,7 @@ const Reviews = () => {
         <section className='text-black my-14' id='reviews'>
             <h3 className="leading-tight text-3xl font-bold my-10 text-black">Reviews</h3>
             <div className="mb-20 text-black px-10 md:px-20">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 xl:grid-cols-4 gap-6 text-center">
+                <div className="grid md:grid-cols-2  grid-cols-1 xl:grid-cols-4 gap-6 text-center">
                     {
                         reviews.slice(0,4).map((review,ind) => <Review review={review} key={ind}></Review>)
                     }

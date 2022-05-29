@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/LoginRegister/Login/Login';
 import Register from './Pages/LoginRegister/Register';
 import RequireAuth from './Pages/LoginRegister/RequireAuth';
+import RequireAdmin from './Pages/LoginRegister/RequireAdmin';
 import Purchase from './Pages/Purchase/Purchase';
 import Parts from './Pages/Home/Parts/Parts';
 import Footer from './shared/Footer';
@@ -15,6 +16,7 @@ import Payment from './Pages/Dashboard/Users/Payment';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import AddReview from './Pages/Dashboard/Users/AddReview';
+import AllUsers from './Pages/Dashboard/Admins/AllUsers';
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
             <Route  index element={<MyProfile></MyProfile>}></Route>
             <Route path='myorders' element={<MyOrders></MyOrders>}></Route>
             <Route path='addreview' element={<AddReview></AddReview>}></Route>
+            <Route path='allusers' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
           </Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/register' element={<Register></Register>}></Route>

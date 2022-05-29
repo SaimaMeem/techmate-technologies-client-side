@@ -7,6 +7,7 @@ import auth from '../../firebase.init';
 import PageTitle from '../../shared/PageTitle';
 import Socials from './Socials';
 import { useForm } from 'react-hook-form';
+import useToken from '../../hooks/useToken';
 const Register = () => {
     const navigate = useNavigate();
     // const location = useLocation();
@@ -17,47 +18,47 @@ const Register = () => {
     const [sendEmailVerification, sending, errorEmailVerification] = useSendEmailVerification(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     let divElement;
-    // const [token] = useToken(user);
+    const [token] = useToken(user);
     const onSubmit = async data => {
         console.log(data)
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({
-            displayName: data.name,
+            displayName: data?.name,
             photoURL: 'https://i.ibb.co/QPVQmtf/users.png'
         });
         await sendEmailVerification();
         console.log('Updated profile');
-        navigate('/home');
-        //POST
-        const userDetails = {
-            username: data.name,
-            image: user?.photoURL || `https://i.ibb.co/QPVQmtf/users.png`,
-            email: data.email,
-        }
-        await fetch('http://localhost:5000/users', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                // authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            },
-            body: JSON.stringify(userDetails),
-        })
-            .then(res => res.json())
-            .then(inserted => {
-                if (inserted.insertedId) {
-                    console.log('New user')
-                }
-                else {
-                    console.log('error')
-                }
-            })
+        // navigate('/home');
+        // //POST
+        // const userDetails = {
+        //     username: data.name,
+        //     image: user?.photoURL || `https://i.ibb.co/QPVQmtf/users.png`,
+        //     email: data.email,
+        // }
+        // await fetch('http://localhost:5000/users', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json',
+        //         // authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        //     },
+        //     body: JSON.stringify(userDetails),
+        // })
+        //     .then(res => res.json())
+        //     .then(inserted => {
+        //         if (inserted.insertedId) {
+        //             console.log('New user')
+        //         }
+        //         else {
+        //             console.log('error')
+        //         }
+        //     })
   
 
     };
 
-    // if (token) {
-    //     navigate('/home');
-    // }
+    if (token) {
+        navigate('/home');
+    }
     if (error) {
         divElement = <p className='text-redd font-semibold'>Error: {error?.message}</p>;
     }

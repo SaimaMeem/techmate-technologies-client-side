@@ -1,9 +1,10 @@
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 // import useToken from '../../../hooks/useToken';
 import google from '../../images/google-logo.png';
 const Socials = () => {
@@ -11,7 +12,7 @@ const Socials = () => {
     const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
     const location = useLocation();
     const navigate = useNavigate();
-    // const [token] = useToken(googleUser || facebookUser);
+    const [token] = useToken(googleUser || facebookUser);
     let divElement;
     let from = location?.state?.from?.pathname || "/";
     if (googleError || facebookError) {
@@ -23,11 +24,14 @@ const Socials = () => {
             <span className="visually-hidden">Loading...</span>
         </div>
     }
-    if (googleUser || facebookUser) {
-        // navigate('/home');
-        navigate(from, { replace: true });
-        console.log(googleUser || facebookUser);
-    }
+    useEffect(() => {
+        if (token) {
+            // navigate('/home');
+            navigate(from, { replace: true });
+            console.log(googleUser || facebookUser);
+        }
+
+    }, [from,token,facebookUser,googleUser,navigate]);
 
     return (
         <div className='flex  justify-center '>

@@ -1,9 +1,14 @@
-import { faBagShopping, faBars, faClose, faFileCirclePlus, faUser, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faBars, faClose, faFileCirclePlus, faUser, faUsers, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
+import auth from '../../firebase.init';
+import useAdmin from '../../hooks/useAdmin';
 import '../Dashboard/Dashboard.css'
 const Dashboard = () => {
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
     return (
         <section>
             <div className="relative min-h-screen md:flex" data-dev-hint="container">
@@ -29,6 +34,10 @@ const Dashboard = () => {
                             <FontAwesomeIcon icon={faBagShopping}></FontAwesomeIcon>
                             <span>My Orders</span>
                             </Link>
+                            {admin && <Link to="allusers" className="flex items-center space-x-2 py-2 px-14 transition duration-15- ease-in-out hover:bg-dark-sky-blue hover:text-white  font-bold">
+                            <FontAwesomeIcon icon={faUsers}></FontAwesomeIcon>
+                            <span>All Users</span>
+                            </Link>}
                             <hr className='bg-gray-300' />
                             <Link to="addreview" className="flex items-center space-x-2 py-2 px-14 transition duration-15- ease-in-out hover:bg-dark-sky-blue hover:text-white  font-bold">
                             <FontAwesomeIcon icon={faFileCirclePlus}></FontAwesomeIcon>
