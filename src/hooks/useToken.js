@@ -13,7 +13,7 @@ const useToken = (user) => {
             image: image || `https://i.ibb.co/QPVQmtf/users.png`,
         };
         if (email) {
-            fetch(`http://localhost:5000/users/${email}`, {
+            fetch(`https://murmuring-fortress-11429.herokuapp.com/users/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

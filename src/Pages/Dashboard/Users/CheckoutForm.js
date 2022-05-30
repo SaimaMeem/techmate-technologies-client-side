@@ -11,7 +11,7 @@ const CheckoutForm = ({ order }) => {
     const { _id, username, contact, email, total_price, total_quantity, part_name } = order;
     useEffect(() => {
         if (total_price) {
-            fetch(`http://localhost:5000/create-payment-intent`, {
+            fetch(`https://murmuring-fortress-11429.herokuapp.com/create-payment-intent`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -88,7 +88,7 @@ const CheckoutForm = ({ order }) => {
                 quantity: total_quantity,
 
             }
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://murmuring-fortress-11429.herokuapp.com/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
@@ -130,12 +130,12 @@ const CheckoutForm = ({ order }) => {
                 </button>
             </form>
 
-                {
-                    success && <div className='text-dark-sky-blue py-5 font-bold'>
-                        <p>{success}</p>
-                        <p>Your transaction Id: <span className='font-bold'>{transactionId}</span></p>
-                    </div>
-                }
+            {
+                success && <div className='text-dark-sky-blue py-5 font-bold'>
+                    <p>{success}</p>
+                    <p>Your transaction Id: <span className='font-bold'>{transactionId}</span></p>
+                </div>
+            }
 
         </div>
     );

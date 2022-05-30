@@ -35,7 +35,7 @@ const Register = () => {
         //     image: user?.photoURL || `https://i.ibb.co/QPVQmtf/users.png`,
         //     email: data.email,
         // }
-        // await fetch('http://localhost:5000/users', {
+        // await fetch('https://murmuring-fortress-11429.herokuapp.com/users', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json',
@@ -52,7 +52,7 @@ const Register = () => {
         //             console.log('error')
         //         }
         //     })
-  
+
 
     };
 

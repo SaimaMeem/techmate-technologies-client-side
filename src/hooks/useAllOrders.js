@@ -9,29 +9,29 @@ const useOrders = (email) => {
     // console.log(email);
     // const email = user?.email;
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${email}`, {
+        fetch(`https://murmuring-fortress-11429.herokuapp.com/orders?email=${email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
         })
-        .then(res => {
-            console.log(res.status);
-            if (res.status === 401 || res.status === 403) {
-                signOut(auth);
-                localStorage.removeItem('accessToken');
-                navigate('/login');
-            }
-            return res.json()
-        })
+            .then(res => {
+                console.log(res.status);
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    localStorage.removeItem('accessToken');
+                    navigate('/login');
+                }
+                return res.json()
+            })
             .then(data => {
                 setOrders(data)
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
-    }, [email,navigate]);
+    }, [email, navigate]);
     return [orders, setOrders];
 };
 

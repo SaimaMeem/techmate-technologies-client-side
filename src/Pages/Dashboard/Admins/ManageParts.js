@@ -10,7 +10,7 @@ import useParts from '../../../hooks/useParts';
 const ManageOrders = () => {
     const [show, setShow] = useState(false);
     const [parts, setParts] = useParts();
-// console.log(parts);
+    // console.log(parts);
     const navigate = useNavigate();
     const navigateToPurchase = (id) => {
         navigate(`/parts/purchase/${id}`)
@@ -19,13 +19,13 @@ const ManageOrders = () => {
     const [partId, setPartId] = useState(null);
     const [partName, setPartName] = useState(null);
     const displayModal = (id, name) => {
-        console.log(id,name);
+        console.log(id, name);
         setPartId(id);
         setPartName(name);
 
     }
     const submitDelete = (partId, partName) => {
-        console.log("clicked", partName,partId);
+        console.log("clicked", partName, partId);
 
         toast.success(`${partName} is deleted from the stock!`, {
             position: "bottom-right",
@@ -36,7 +36,7 @@ const ManageOrders = () => {
             draggable: true,
             progress: undefined,
         });
-        const url = `http://localhost:5000/parts/${partId}`;
+        const url = `https://murmuring-fortress-11429.herokuapp.com/parts/${partId}`;
         fetch(url, {
             method: "DELETE",
             headers: {

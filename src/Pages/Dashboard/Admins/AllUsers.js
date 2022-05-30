@@ -5,26 +5,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserGear } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 const AllUsers = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/user/`, {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`https://murmuring-fortress-11429.herokuapp.com/user/`, {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     })
         .then(res => res.json()))
-        if(isLoading){
-            return <>
+    if (isLoading) {
+        return <>
             <section className="pt-36 pb-28">
-                 <div className="text-center">
-                     <div className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full text-dark-sky-blue font-bold
+                <div className="text-center">
+                    <div className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full text-dark-sky-blue font-bold
          " role="status">
-                         <span className="visually-hidden">Loading...</span>
-                     </div>
-                 </div>
-             </section>
-         </>
-        }
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </section>
+        </>
+    }
     const makeAdmin = (email) => {
-        fetch(`http://localhost:5000/user/admin/${email}`,
+        fetch(`https://murmuring-fortress-11429.herokuapp.com/user/admin/${email}`,
             {
                 method: "PUT",
                 headers: {
@@ -40,7 +40,7 @@ const AllUsers = () => {
             })
             .then(data => {
                 console.log(data);
-                if(data.modifiedCount ){
+                if (data.modifiedCount) {
                     refetch();
                     toast.success(`Successfully made an Admin!`);
                 }

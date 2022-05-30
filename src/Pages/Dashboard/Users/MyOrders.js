@@ -45,7 +45,7 @@ const MyOrders = () => {
             draggable: true,
             progress: undefined,
         });
-        const url = `http://localhost:5000/orders/${orderId}`;
+        const url = `https://murmuring-fortress-11429.herokuapp.com/orders/${orderId}`;
         fetch(url, {
             method: "DELETE",
             headers: {

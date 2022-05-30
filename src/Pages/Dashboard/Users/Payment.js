@@ -14,21 +14,21 @@ const Payment = () => {
     // const [user] = useAuthState(auth);
     const [order, setOrder] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${orderId}`, {
+        fetch(`https://murmuring-fortress-11429.herokuapp.com/orders/${orderId}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
                 // 'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
         })
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data);
-            setOrder(data)
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                setOrder(data)
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }, [orderId]);
     // const { register, formState: { errors }, handleSubmit, reset } = useForm();
     //ONSUBMIT
@@ -42,38 +42,38 @@ const Payment = () => {
                 <div className="md:mx-40 mx-10">
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 justify-items-center w-full'>
                         <div className='w-full px-10'>
-                        <h3 className="leading-tight text-xl font-bold py-3"> User Information</h3>
-                        <div className='shadow-lg rounded-lg p-6 border-2'>
-                            <div className="form-group mb-6">
-                                <div className="form-floating w-full">
+                            <h3 className="leading-tight text-xl font-bold py-3"> User Information</h3>
+                            <div className='shadow-lg rounded-lg p-6 border-2'>
+                                <div className="form-group mb-6">
+                                    <div className="form-floating w-full">
 
-                                    <input type="text" className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="name" placeholder="Username" value={order?.username} disabled readOnly />
-                                    <label htmlFor="name" className="text-gray-700">Username</label>
+                                        <input type="text" className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="name" placeholder="Username" value={order?.username} disabled readOnly />
+                                        <label htmlFor="name" className="text-gray-700">Username</label>
+                                    </div>
+                                </div>
+                                <div className="form-group mb-6">
+                                    <div className="form-floating w-full">
+
+                                        <input type="email" className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="email" placeholder="Email Address" value={order?.email} disabled readOnly />
+                                        <label htmlFor="email" className="text-gray-700">Email Address</label>
+                                    </div>
+                                </div>
+                                <div className="form-group mb-6">
+                                    <div className="form-floating w-full">
+                                        <input type="text" className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="contact" placeholder="Contact Number" value={order?.contact} disabled readOnly />
+
+                                        <label htmlFor="contact" className="text-gray-700">Contact Number</label>
+                                    </div>
+                                </div>
+                                <div className="form-group mb-6">
+                                    <div className="form-floating w-full">
+                                        <textarea className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" rows="3" id="address" placeholder="Address" value={order?.address} disabled readOnly />
+
+                                        <label htmlFor="address" className="text-gray-700">Address </label>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="form-group mb-6">
-                                <div className="form-floating w-full">
 
-                                    <input type="email" className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="email" placeholder="Email Address" value={order?.email} disabled readOnly />
-                                    <label htmlFor="email" className="text-gray-700">Email Address</label>
-                                </div>
-                            </div>
-                            <div className="form-group mb-6">
-                                <div className="form-floating w-full">
-                                    <input type="text" className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="contact" placeholder="Contact Number" value={order?.contact} disabled readOnly />
-
-                                    <label htmlFor="contact" className="text-gray-700">Contact Number</label>
-                                </div>
-                            </div>
-                            <div className="form-group mb-6">
-                                <div className="form-floating w-full">
-                                    <textarea className="form-control block w-full px-3 py-1.5 text-base font-medium text-black bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" rows="3" id="address" placeholder="Address" value={order?.address} disabled readOnly />
-
-                                    <label htmlFor="address" className="text-gray-700">Address </label>
-                                </div>
-                            </div>
-                        </div>
-                        
                         </div>
                         <div className='w-full'>
                             <div>

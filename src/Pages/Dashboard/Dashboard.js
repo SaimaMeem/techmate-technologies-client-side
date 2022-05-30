@@ -21,7 +21,7 @@ const Dashboard = () => {
                 {/* top-20 pl-10  pt-[50px]  */}
 
                 <aside id="sidebar" className=" bg-light-off-white text-black md:w-60 w-1/2 space-y-6 pt-6 px-0 absolute inset-y-0 left-0 transform md:relative md:translate-x-0 transition duration-200 ease-in-out  md:flex md:flex-col md:justify-between overflow-y-auto  z-30  shadow-[10px_0_10px_-3px_rgba(0,0,0,0.1)]" data-dev-hint="sidebar; px-0 for frameless; px-2 for visually inset the navigation shadow-lg ">
-                    <div className="flex flex-col space-y-6 md:pt-20" data-dev-hint="optional div for having an extra footer navigation">
+                    <div className="flex flex-col space-y-6 md:pt-24" data-dev-hint="optional div for having an extra footer navigation">
                         <a href="!#" className="text-black flex items-center space-x-2 px-4">
                         </a>
 
@@ -65,11 +65,11 @@ const Dashboard = () => {
 
                 </aside>
                 <header className="mt-24 flex justify-end items-center md:hidden" data-dev-hint="mobile menu bar">
-                    <a href="!#" className="block p-4  font-bold whitespace-nowrap truncate">
+                    <Link to="/dashboard" className="block p-4  font-bold whitespace-nowrap truncate">
                      <span className='text-3xl text-right'> Dashboard</span>
-                    </a>
+                    </Link>
 
-                    <label for="menu-open" id="mobile-menu-button" className="m-2 py-2 px-3 focus:outline-none shadow-md rounded-full">
+                    <label htmlFor="menu-open" id="mobile-menu-button" className="m-2 py-2 px-3 focus:outline-none shadow-md rounded-full">
                         {/* <svg id="menu-open-icon" className="h-6 w-6 transition duration-200 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg> */}

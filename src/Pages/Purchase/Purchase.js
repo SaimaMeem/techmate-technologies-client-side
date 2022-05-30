@@ -15,7 +15,7 @@ const Purchase = () => {
     const [partDetails, setPartDetails] = useState([]);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     useEffect(() => {
-        fetch(`http://localhost:5000/parts/purchase/${partId}`)
+        fetch(`https://murmuring-fortress-11429.herokuapp.com/parts/purchase/${partId}`)
             .then(res => res.json())
             .then(data => setPartDetails(data))
     }, [partDetails, partId]);
@@ -118,7 +118,7 @@ const Purchase = () => {
             total_price: total,
         }
         //PUT
-        fetch(`http://localhost:5000/parts/purchase/${partId}`, {
+        fetch(`https://murmuring-fortress-11429.herokuapp.com/parts/purchase/${partId}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -133,7 +133,7 @@ const Purchase = () => {
                 console.error('Error:', error);
             });
         //POST
-        fetch('http://localhost:5000/orders', {
+        fetch('https://murmuring-fortress-11429.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

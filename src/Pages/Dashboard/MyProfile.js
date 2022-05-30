@@ -17,13 +17,13 @@ const MyProfile = () => {
     const onSubmit = async data => {
         console.log(data);
         const userDetails = {
-            username:user?.displayName,
+            username: user?.displayName,
             address: data?.address || users?.address,
             contact: data?.contact || users?.contact,
         }
         console.log(userDetails);
         //POST
-        fetch(`http://localhost:5000/users/${email}`, {
+        fetch(`https://murmuring-fortress-11429.herokuapp.com/users/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

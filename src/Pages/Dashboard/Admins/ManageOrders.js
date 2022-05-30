@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import PageTitle from '../../../shared/PageTitle';
-import { faCreditCard, faReceipt, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCreditCard, faEllipsis, faExclamation, faReceipt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
@@ -10,9 +10,9 @@ import DeleteConfirmationModal from '../../../shared/DeleteConfirmationModal';
 const ManageOrders = () => {
     const [show, setShow] = useState(false);
     const [orders, setOrders] = useState([]);
-   
+
     useEffect(() => {
-        fetch(`http://localhost:5000/allorders`)
+        fetch(`https://murmuring-fortress-11429.herokuapp.com/allorders`)
             .then(res => res.json())
             .then(data => setOrders(data))
 
@@ -46,7 +46,7 @@ const ManageOrders = () => {
             draggable: true,
             progress: undefined,
         });
-        const url = `http://localhost:5000/orders/${orderId}`;
+        const url = `https://murmuring-fortress-11429.herokuapp.com/orders/${orderId}`;
         fetch(url, {
             method: "DELETE",
             headers: {
@@ -92,7 +92,10 @@ const ManageOrders = () => {
                                                 Action
                                             </th>
                                             {/* <th scope="col" className="text-sm py-4 px-2  border-r">
-                                                Status
+                                                Payment Status
+                                            </th>
+                                            <th scope="col" className="text-sm py-4 px-2  border-r">
+                                                Delivery Status
                                             </th> */}
 
 
@@ -119,6 +122,10 @@ const ManageOrders = () => {
                                                             data-bs-target="#staticBackdrop" type='' onClick={() => { displayModal(order._id, order.part_name) }} disabled={order.paid}><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></button>
 
                                                     </td>
+                                                    {/* <td>{!order?.paid ? <button  className=' px-2 rounded-md py-1.5 bg-orange-dark text-white  transition duration-150 ease-in-out text-xs font-bold'  >Unpaid&nbsp;<FontAwesomeIcon className='font-bolder' icon={faExclamation}></FontAwesomeIcon></button> :<button onClick={() => { setShow(!show) }} className='flex items-center px-2 rounded-md py-1.5 bg-yellow text-white  transition duration-150 ease-in-out text-xs font-bold'  >Payment Done&nbsp;<FontAwesomeIcon className='font-bolder pt-1 pl-1' icon={faEllipsis}></FontAwesomeIcon></button>}
+                                                    {show && }
+                                                    </td> */}
+                                                    {/* <td>{!order?.paid ? "Pending" :"Ready to be Shipped Done"}</td> */}
                                                     {/* <td className="text-lg font-medium px-6 py-2 whitespace-nowrap border-r">
                                                         {(order?.order_quantity && !order?.paid) &&
                                                             <button className='text-darker-sky-blue' onClick={() => {  }} ><FontAwesomeIcon icon={faCreditCard}></FontAwesomeIcon></button>}

@@ -16,11 +16,11 @@ const AddPart = () => {
             available_quantity: data.available_quantity,
             image: data.image,
             description: data.description,
-            
+
         }
         console.log(partDetails);
         // POST
-        fetch(`http://localhost:5000/parts/`, {
+        fetch(`https://murmuring-fortress-11429.herokuapp.com/parts/`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

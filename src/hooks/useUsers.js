@@ -1,10 +1,10 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const useUsers = (email) => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/users?email=${email}`, {
+        fetch(`https://murmuring-fortress-11429.herokuapp.com/users?email=${email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ const useUsers = (email) => {
             .catch((error) => {
                 console.error('Error:', error);
             });
-    }, [users,email]);
+    }, [users, email]);
     return [users, setUsers];
 }
 export default useUsers;

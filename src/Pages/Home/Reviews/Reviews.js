@@ -5,7 +5,7 @@ import customer1 from '../../../images/customers/3.jpg';
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews`, {
+        fetch(`https://murmuring-fortress-11429.herokuapp.com/reviews`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const Reviews = () => {
             <div className="mb-20 text-black px-10 md:px-20">
                 <div className="grid md:grid-cols-2  grid-cols-1 xl:grid-cols-4 gap-6 text-center">
                     {
-                        reviews.slice(0,4).map((review,ind) => <Review review={review} key={ind}></Review>)
+                        reviews.slice(0, 4).map((review, ind) => <Review review={review} key={ind}></Review>)
                     }
                     {/* <Review name="Saima" image={customer1} description={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, delectus exercitationem sed cumque ducimus necessitatibus eius dolores molestiae'}></Review> */}
                 </div>

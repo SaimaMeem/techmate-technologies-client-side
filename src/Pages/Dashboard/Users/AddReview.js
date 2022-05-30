@@ -24,7 +24,7 @@ const AddReview = () => {
         }
         console.log(review);
         //POST
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://murmuring-fortress-11429.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
