@@ -47,21 +47,10 @@ const AllUsers = () => {
 
             })
     }
-    if (isLoading) {
-        return <>
-            <section className="pt-36 pb-28">
-                <div className="text-center">
-                    <div className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full text-dark-sky-blue font-bold" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
-                </div>
-            </section>
-        </>
-    }
     let count = 1;
     return (
         <section>
-            <PageTitle title={'Dashboard - Users'}></PageTitle>
+            <PageTitle title={'Dashboard - All Users'}></PageTitle>
             <div className='pt-1 pb-24'>
                 <h3 className="leading-tight text-2xl font-bold mb-2"> Users</h3>
                 <div className="flex flex-col justify-center">

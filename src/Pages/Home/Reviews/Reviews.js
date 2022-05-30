@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Review from './Review';
-import customer1 from '../../../images/customers/3.jpg';
+
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);

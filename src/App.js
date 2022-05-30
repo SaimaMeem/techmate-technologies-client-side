@@ -21,7 +21,9 @@ import AllUsers from './Pages/Dashboard/Admins/AllUsers';
 import ManageOrders from './Pages/Dashboard/Admins/ManageOrders';
 import AddPart from './Pages/Dashboard/Admins/AddPart';
 import ManageParts from './Pages/Dashboard/Admins/ManageParts';
-
+import AllParts from './Pages/AllParts';
+import Portfolio from './Pages/Portfolio';
+import Blogs from './Pages/Blogs';
 function App() {
   return (
     <div className="App min-h-screen flex flex-col">
@@ -30,7 +32,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/home' element={<Home></Home>}></Route>
-          <Route path='/parts' element={<Parts></Parts>}></Route>
+          <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+          <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
+          <Route path='/parts' element={<RequireAuth>
+            <AllParts></AllParts>
+          </RequireAuth>}></Route>
           <Route path='parts/purchase/:partId' element={<RequireAuth>
             <Purchase></Purchase>
           </RequireAuth>}></Route>
