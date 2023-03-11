@@ -4,14 +4,22 @@ import PageTitle from '../shared/PageTitle';
 import { useNavigate } from 'react-router-dom';
 
 import useParts from '../hooks/useParts';
+import { useState,useEffect } from 'react';
+import Loader from '../shared/Loader';
 const AllParts = () => {
     const [parts, setParts] = useParts();
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const navigateToPurchase = (id) => {
         navigate(`/parts/purchase/${id}`)
     }
     let count = 1;
-
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1200);
+    }, [])
     return (
         <section>
             <PageTitle title={'Dashboard - All Parts'}></PageTitle>
@@ -43,8 +51,8 @@ const AllParts = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {parts.length ?
-
+                                        {loading ? <tr><td colSpan="6" className='py-5 font-bold' ><Loader /></td></tr> :
+                                        parts.length ?
                                             parts.map(part =>
                                                 <tr key={part._id} className="bg-white  transition duration-300 ease-in-out hover:bg-gray-100 border">
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium border-r">{count++}</td>

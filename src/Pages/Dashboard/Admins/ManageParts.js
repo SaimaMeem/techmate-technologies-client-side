@@ -7,9 +7,17 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import DeleteConfirmationModal from '../../../shared/DeleteConfirmationModal';
 import useParts from '../../../hooks/useParts';
+import Loader from '../../../shared/Loader';
 const ManageOrders = () => {
     const [show, setShow] = useState(false);
     const [parts, setParts] = useParts();
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1200);
+    }, [])
     const navigate = useNavigate();
     const navigateToPurchase = (id) => {
         navigate(`/parts/purchase/${id}`)
@@ -83,8 +91,8 @@ const ManageOrders = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {parts.length ?
-
+                                        {loading ? <tr><td colSpan="6" className='py-5 font-bold' ><Loader /></td></tr> :
+                                            parts.length ?
                                             parts.map(part =>
                                                 <tr key={part._id} className="bg-white  transition duration-300 ease-in-out hover:bg-gray-100 border">
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium border-r">{count++}</td>

@@ -12,13 +12,13 @@ const AllUsers = () => {
         }
     })
         .then(res => res.json()))
-    if (isLoading) {
-        return <>
-            <section className="pt-36 pb-28">
-                <Loader />
-            </section>
-        </>
-    }
+    // if (isLoading) {
+    //     return <>
+    //         <section className="pt-36 pb-28">
+    //             <Loader />
+    //         </section>
+    //     </>
+    // }
     const makeAdmin = (email) => {
         fetch(`https://techmate-technologies.onrender.com/user/admin/${email}`,
             {
@@ -78,8 +78,8 @@ const AllUsers = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {users.length ?
-
+                                        {isLoading ? <tr><td colSpan="6" className='py-5 font-bold' ><Loader /></td></tr> :
+                                            users.length ?
                                             users.map(user =>
                                                 <tr key={user._id} className="bg-white  transition duration-300 ease-in-out hover:bg-gray-100 border">
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium border-r">{count++}</td>

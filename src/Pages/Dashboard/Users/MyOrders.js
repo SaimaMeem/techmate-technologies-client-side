@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PageTitle from '../../../shared/PageTitle';
 import { faCreditCard, faReceipt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,13 +10,21 @@ import auth from '../../../firebase.init';
 import { useNavigate } from 'react-router-dom';
 import DeleteConfirmationModal from '../../../shared/DeleteConfirmationModal';
 import useOrders from '../../../hooks/useOrders';
+import Loader from '../../../shared/Loader';
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
     const [show, setShow] = useState(false);
     const email = user?.email;
     const [orders, setOrders] = useOrders(email);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1200);
+    }, [])
     const navigateToPurchase = (id) => {
         navigate(`/parts/purchase/${id}`)
     }
@@ -93,40 +101,40 @@ const MyOrders = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {orders.length ?
+                                        {loading ? <tr><td colSpan="6" className='py-5 font-bold' ><Loader /></td></tr> :
+                                            orders.length ?
+                                                orders.map(order =>
+                                                    <tr key={order._id} className="bg-white  transition duration-300 ease-in-out hover:bg-gray-100 border">
+                                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium border-r">{count++}</td>
+                                                        <td className="text-sm font-medium px-3 py-4 whitespace-nowrap border-r flex items-center justify-center gap-2 cursor-pointer" type='button' onClick={() => { navigateToPurchase(order.part_id) }}>
+                                                            <img className="rounded-lg h-12 w-12 object-cover hidden md:block" src={order.part_image} alt="" />  {order.part_name}
+                                                        </td>
+                                                        <td className="text-sm font-medium px-6 py-4 whitespace-nowrap border-r">
+                                                            {order.order_quantity} Unit
 
-                                            orders.map(order =>
-                                                <tr key={order._id} className="bg-white  transition duration-300 ease-in-out hover:bg-gray-100 border">
-                                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium border-r">{count++}</td>
-                                                    <td className="text-sm font-medium px-3 py-4 whitespace-nowrap border-r flex items-center justify-center gap-2 cursor-pointer" type='button' onClick={() => { navigateToPurchase(order.part_id) }}>
-                                                        <img className="rounded-lg h-12 w-12 object-cover hidden md:block" src={order.part_image} alt="" />  {order.part_name}
-                                                    </td>
-                                                    <td className="text-sm font-medium px-6 py-4 whitespace-nowrap border-r">
-                                                        {order.order_quantity} Unit
+                                                        </td>
+                                                        <td className="text-sm font-medium px-6 py-4 whitespace-nowrap border-r">
+                                                            ${order.total_price}
+                                                        </td>
+                                                        <td className="text-lg font-medium px-6 py-2 whitespace-nowrap border-r">
+                                                            <button className='text-redd disabled:text-gray-400 disabled:cursor-not-allowed' data-bs-toggle={order?.paid ? 'collapse' : "modal"}
+                                                                data-bs-target="#staticBackdrop" type='' onClick={() => { displayModal(order._id, order.part_name) }} disabled={order.paid}><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></button>
 
-                                                    </td>
-                                                    <td className="text-sm font-medium px-6 py-4 whitespace-nowrap border-r">
-                                                        ${order.total_price}
-                                                    </td>
-                                                    <td className="text-lg font-medium px-6 py-2 whitespace-nowrap border-r">
-                                                        <button className='text-redd disabled:text-gray-400 disabled:cursor-not-allowed' data-bs-toggle={order?.paid ? 'collapse' : "modal"}
-                                                            data-bs-target="#staticBackdrop" type='' onClick={() => { displayModal(order._id, order.part_name) }} disabled={order.paid}><FontAwesomeIcon icon={faTrash}></FontAwesomeIcon></button>
+                                                        </td>
+                                                        <td className="text-lg font-medium px-6 py-2 whitespace-nowrap border-r">
+                                                            {(order?.order_quantity && !order?.paid) &&
+                                                                <button className='text-darker-sky-blue' onClick={() => { navigateToPay(order?._id) }} ><FontAwesomeIcon icon={faCreditCard}></FontAwesomeIcon></button>}
+                                                            {(order?.order_quantity && order?.paid) && <div>
+                                                                <button onClick={() => { setShow(!show) }} className='text-pastel-green-dark  transition duration-150 ease-in-out'  ><FontAwesomeIcon icon={faReceipt}></FontAwesomeIcon></button>
+                                                                {show && <p className='text-pastel-green-dark font-bold text-sm  transition duration-150 ease-in-out '><span>Transaction Id:</span>{order?.transactionId}</p>}
+                                                            </div>}
 
-                                                    </td>
-                                                    <td className="text-lg font-medium px-6 py-2 whitespace-nowrap border-r">
-                                                        {(order?.order_quantity && !order?.paid) &&
-                                                            <button className='text-darker-sky-blue' onClick={() => { navigateToPay(order?._id) }} ><FontAwesomeIcon icon={faCreditCard}></FontAwesomeIcon></button>}
-                                                        {(order?.order_quantity && order?.paid) && <div>
-                                                            <button onClick={() => { setShow(!show) }} className='text-pastel-green-dark  transition duration-150 ease-in-out'  ><FontAwesomeIcon icon={faReceipt}></FontAwesomeIcon></button>
-                                                            {show && <p className='text-pastel-green-dark font-bold text-sm  transition duration-150 ease-in-out '><span>Transaction Id:</span>{order?.transactionId}</p>}
-                                                        </div>}
+                                                        </td>
 
-                                                    </td>
-
+                                                    </tr>
+                                                ) : <tr>
+                                                    <td colSpan="6" className='py-5 font-bold' >You have no orders!</td>
                                                 </tr>
-                                            ) : <tr>
-                                                <td colSpan="6" className='py-5 font-bold' >You have no orders!</td>
-                                            </tr>
                                         }
                                     </tbody>
                                 </table>

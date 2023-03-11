@@ -6,17 +6,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import DeleteConfirmationModal from '../../../shared/DeleteConfirmationModal';
+import Loader from '../../../shared/Loader';
 
 const ManageOrders = () => {
     const [show, setShow] = useState(false);
     const [orders, setOrders] = useState([]);
-
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
+        setLoading(true);
         fetch(`https://techmate-technologies.onrender.com/allorders`)
             .then(res => res.json())
-            .then(data => setOrders(data))
-
-    }, [orders]);
+            .then(data => {
+                setLoading(false);
+                setOrders(data);
+            })
+    }, []);
     const navigate = useNavigate();
     const navigateToPurchase = (id) => {
         navigate(`/parts/purchase/${id}`)
@@ -98,8 +102,8 @@ const ManageOrders = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {orders.length ?
-
+                                        {loading ? <tr><td colSpan="6" className='py-5 font-bold' ><Loader /></td></tr> :
+                                        orders.length ?
                                             orders.map(order =>
                                                 <tr key={order._id} className="bg-white  transition duration-300 ease-in-out hover:bg-gray-100 border">
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium border-r">{count++}</td>
