@@ -4,6 +4,7 @@ import PageTitle from '../../../shared/PageTitle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserGear } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
+import Loader from '../../../shared/Loader';
 const AllUsers = () => {
     const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`https://techmate-technologies.onrender.com/user/`, {
         headers: {
@@ -14,12 +15,7 @@ const AllUsers = () => {
     if (isLoading) {
         return <>
             <section className="pt-36 pb-28">
-                <div className="text-center">
-                    <div className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full text-dark-sky-blue font-bold
-         " role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </div>
-                </div>
+                <Loader />
             </section>
         </>
     }

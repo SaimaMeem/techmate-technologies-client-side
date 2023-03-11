@@ -8,23 +8,19 @@ import auth from '../firebase.init';
 import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
+import Loader from './Loader';
 const Header = () => {
-    
-        const navigate = useNavigate();
-        const [user,loading] = useAuthState(auth);
-        const logOut = () => {
-            signOut(auth);
-            localStorage.removeItem('accessToken');
-            navigate('/login');
-        };
-        if(loading){
-            <section className="pt-36 pb-28">
-            <div className="text-center">
-                <div className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full text-dark-sky-blue font-bold
-    " role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </div>
-            </div>
+
+    const navigate = useNavigate();
+    const [user, loading] = useAuthState(auth);
+    const logOut = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+        navigate('/login');
+    };
+    if (loading) {
+        <section className="pt-36 pb-28">
+            <Loader />
         </section>
     }
     return (
@@ -44,7 +40,7 @@ const Header = () => {
                     >
                         <FontAwesomeIcon icon={faBars} />
                     </button>
-                    
+
                     <div className="container-fluid">
                         <Link className="flex items-center text-black mt-2 lg:mt-0 ml:20 pl-6 sm:pl-16 lg:ml-0" to="/home">
                             <img className="hidden mr-2 sm:block" src={brandLogo} style={{ height: "40px" }} alt="" loading="lazy" />
@@ -80,7 +76,7 @@ const Header = () => {
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                     <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                 </li> */}
-                              
+
                                 <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
                                     <Link
                                         className="nav-link text-black"

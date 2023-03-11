@@ -10,6 +10,7 @@ import PageTitle from '../../../shared/PageTitle';
 import Socials from '../Socials';
 import { useForm } from 'react-hook-form';
 import useToken from '../../../hooks/useToken';
+import Loader from '../../../shared/Loader';
 const Login = () => {
     const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
@@ -31,10 +32,7 @@ const Login = () => {
         divElement = <p className='text-red-600 font-semibold'>Error: {emailError?.message}</p>;
     }
     if (emailLoading) {
-        divElement = <div className=" spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full text-spinner-color font-bold
-" role="status">
-            <span className="visually-hidden">Loading...</span>
-        </div>
+        divElement =  <Loader />
     }
     const resetPassword = async () => {
         const email = document.getElementById('email').value;
