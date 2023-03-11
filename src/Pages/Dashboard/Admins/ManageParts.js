@@ -32,7 +32,7 @@ const ManageOrders = () => {
             draggable: true,
             progress: undefined,
         });
-        const url = `https://murmuring-fortress-11429.herokuapp.com/parts/${partId}`;
+        const url = `https://techmate-technologies.onrender.com/parts/${partId}`;
         fetch(url, {
             method: "DELETE",
             headers: {
@@ -109,7 +109,7 @@ const ManageOrders = () => {
                                                     </td>
                                                 </tr>
                                             ) : <tr>
-                                            <td colSpan="6" className='py-5 font-bold' >No parts are available!</td>
+                                                <td colSpan="6" className='py-5 font-bold' >No parts are available!</td>
                                             </tr>
                                         }
                                     </tbody>

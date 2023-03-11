@@ -15,7 +15,7 @@ const Purchase = () => {
     const [partDetails, setPartDetails] = useState([]);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     useEffect(() => {
-        fetch(`https://murmuring-fortress-11429.herokuapp.com/parts/purchase/${partId}`)
+        fetch(`https://techmate-technologies.onrender.com/parts/purchase/${partId}`)
             .then(res => res.json())
             .then(data => setPartDetails(data))
     }, [partDetails, partId]);
@@ -114,7 +114,7 @@ const Purchase = () => {
             total_price: total,
         }
         //PUT
-        fetch(`https://murmuring-fortress-11429.herokuapp.com/parts/purchase/${partId}`, {
+        fetch(`https://techmate-technologies.onrender.com/parts/purchase/${partId}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -129,7 +129,7 @@ const Purchase = () => {
                 // console.error('Error:', error);
             });
         //POST
-        fetch('https://murmuring-fortress-11429.herokuapp.com/orders', {
+        fetch('https://techmate-technologies.onrender.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

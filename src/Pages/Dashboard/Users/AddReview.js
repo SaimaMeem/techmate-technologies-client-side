@@ -22,7 +22,7 @@ const AddReview = () => {
             rating: rating,
         }
         //POST
-        fetch('https://murmuring-fortress-11429.herokuapp.com/reviews', {
+        fetch('https://techmate-technologies.onrender.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

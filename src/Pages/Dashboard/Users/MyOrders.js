@@ -41,7 +41,7 @@ const MyOrders = () => {
             draggable: true,
             progress: undefined,
         });
-        const url = `https://murmuring-fortress-11429.herokuapp.com/orders/${orderId}`;
+        const url = `https://techmate-technologies.onrender.com/orders/${orderId}`;
         fetch(url, {
             method: "DELETE",
             headers: {

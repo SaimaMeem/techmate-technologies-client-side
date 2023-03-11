@@ -5,7 +5,7 @@ import Review from './Review';
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`https://murmuring-fortress-11429.herokuapp.com/reviews`, {
+        fetch(`https://techmate-technologies.onrender.com/reviews`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',

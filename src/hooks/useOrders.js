@@ -7,7 +7,7 @@ const useOrders = (email) => {
     const [orders, setOrders] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`https://murmuring-fortress-11429.herokuapp.com/orders?email=${email}`, {
+        fetch(`https://techmate-technologies.onrender.com/orders?email=${email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',

@@ -20,7 +20,7 @@ const MyProfile = () => {
             contact: data?.contact || users?.contact,
         }
         //POST
-        fetch(`https://murmuring-fortress-11429.herokuapp.com/users/${email}`, {
+        fetch(`https://techmate-technologies.onrender.com/users/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserGear } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 const AllUsers = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`https://murmuring-fortress-11429.herokuapp.com/user/`, {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`https://techmate-technologies.onrender.com/user/`, {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -24,7 +24,7 @@ const AllUsers = () => {
         </>
     }
     const makeAdmin = (email) => {
-        fetch(`https://murmuring-fortress-11429.herokuapp.com/user/admin/${email}`,
+        fetch(`https://techmate-technologies.onrender.com/user/admin/${email}`,
             {
                 method: "PUT",
                 headers: {

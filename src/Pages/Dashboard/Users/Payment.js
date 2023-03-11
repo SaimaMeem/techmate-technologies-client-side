@@ -14,7 +14,7 @@ const Payment = () => {
     // const [user] = useAuthState(auth);
     const [order, setOrder] = useState([]);
     useEffect(() => {
-        fetch(`https://murmuring-fortress-11429.herokuapp.com/orders/${orderId}`, {
+        fetch(`https://techmate-technologies.onrender.com/orders/${orderId}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',

@@ -11,7 +11,7 @@ const CheckoutForm = ({ order }) => {
     const { _id, username, contact, email, total_price, total_quantity, part_name } = order;
     useEffect(() => {
         if (total_price) {
-            fetch(`https://murmuring-fortress-11429.herokuapp.com/create-payment-intent`, {
+            fetch(`https://techmate-technologies.onrender.com/create-payment-intent`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -86,7 +86,7 @@ const CheckoutForm = ({ order }) => {
                 quantity: total_quantity,
 
             }
-            fetch(`https://murmuring-fortress-11429.herokuapp.com/orders/${_id}`, {
+            fetch(`https://techmate-technologies.onrender.com/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

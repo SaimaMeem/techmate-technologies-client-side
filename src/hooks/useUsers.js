@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 const useUsers = (email) => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch(`https://murmuring-fortress-11429.herokuapp.com/users?email=${email}`, {
+        fetch(`https://techmate-technologies.onrender.com/users?email=${email}`, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',

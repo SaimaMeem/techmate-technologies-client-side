@@ -17,7 +17,7 @@ const AddPart = () => {
 
         }
         // POST
-        fetch(`https://murmuring-fortress-11429.herokuapp.com/parts/`, {
+        fetch(`https://techmate-technologies.onrender.com/parts/`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

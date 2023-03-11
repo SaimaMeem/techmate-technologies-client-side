@@ -12,7 +12,7 @@ const ManageOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`https://murmuring-fortress-11429.herokuapp.com/allorders`)
+        fetch(`https://techmate-technologies.onrender.com/allorders`)
             .then(res => res.json())
             .then(data => setOrders(data))
 
@@ -43,7 +43,7 @@ const ManageOrders = () => {
             draggable: true,
             progress: undefined,
         });
-        const url = `https://murmuring-fortress-11429.herokuapp.com/orders/${orderId}`;
+        const url = `https://techmate-technologies.onrender.com/orders/${orderId}`;
         fetch(url, {
             method: "DELETE",
             headers: {
