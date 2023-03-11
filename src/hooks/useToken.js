@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 const useToken = (user) => {
     const [token, setToken] = useState('');
     useEffect(() => {
-        // console.log(user);
         const email = user?.user?.email;
         const username = user?.user?.displayName;
         const image = user?.user?.photoURL;
@@ -22,7 +21,6 @@ const useToken = (user) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log('log log', data)
                     const accessToken = data.token;
                     localStorage.setItem('accessToken', accessToken);
                     setToken(accessToken);

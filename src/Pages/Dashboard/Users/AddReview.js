@@ -13,7 +13,6 @@ const AddReview = () => {
     const [hover, setHover] = useState(0);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
-        // console.log(data);
         const review = {
             username: user?.displayName,
             image: user?.photoURL || `https://i.ibb.co/QPVQmtf/users.png`,
@@ -22,7 +21,6 @@ const AddReview = () => {
             comment: data.comment,
             rating: rating,
         }
-        console.log(review);
         //POST
         fetch('https://murmuring-fortress-11429.herokuapp.com/reviews', {
             method: 'POST',

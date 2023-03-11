@@ -12,14 +12,12 @@ const Header = () => {
     
         const navigate = useNavigate();
         const [user,loading] = useAuthState(auth);
-        // console.log(user?.displayName);
         const logOut = () => {
             signOut(auth);
             localStorage.removeItem('accessToken');
             navigate('/login');
         };
         if(loading){
-            // console.log("loading");
             <section className="pt-36 pb-28">
             <div className="text-center">
                 <div className="spinner-border animate-spin inline-block w-10 h-10 border-4 rounded-full text-dark-sky-blue font-bold

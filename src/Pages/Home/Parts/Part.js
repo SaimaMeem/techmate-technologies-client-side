@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const Part = ({ part }) => {
     const { _id, name, price, available_quantity, image, description, min_quantity } = part;
     // const descriptionList = description.split('\\r\\n');
-    // console.log(descriptionList);
     const navigate = useNavigate();
     const navigateToPurchase = (id) => {
         navigate(`/parts/purchase/${id}`)

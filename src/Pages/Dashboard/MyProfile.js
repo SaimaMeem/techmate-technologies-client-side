@@ -12,16 +12,13 @@ const MyProfile = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
     const [users] = useUsers(email);
-    // console.log(users);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
-        console.log(data);
         const userDetails = {
             username: user?.displayName,
             address: data?.address || users?.address,
             contact: data?.contact || users?.contact,
         }
-        console.log(userDetails);
         //POST
         fetch(`https://murmuring-fortress-11429.herokuapp.com/users/${email}`, {
             method: 'PUT',
@@ -33,7 +30,6 @@ const MyProfile = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.result.modifiedCount || data.result.upsertedCount) {
                     toast.success('Your Profile is updated')
                     reset();

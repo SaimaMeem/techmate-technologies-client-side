@@ -25,7 +25,6 @@ const ManageOrders = () => {
     //     navigate(`/payment/${id}`)
     // }
 
-    // console.log(email);
     let count = 1;
     const [orderId, setOrderId] = useState(null);
     const [partName, setPartName] = useState(null);
@@ -35,8 +34,6 @@ const ManageOrders = () => {
 
     }
     const submitDelete = (orderId, partName) => {
-        console.log("clicked", partName);
-
         toast.success(`Order of ${partName} is deleted from your orders!`, {
             position: "bottom-right",
             autoClose: 3000,
@@ -57,7 +54,6 @@ const ManageOrders = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
-                    console.log("deletion successful");
                     const rest = orders.filter(order => order._id !== orderId);
                     setOrders(rest);
                 }

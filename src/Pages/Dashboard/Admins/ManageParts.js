@@ -10,7 +10,6 @@ import useParts from '../../../hooks/useParts';
 const ManageOrders = () => {
     const [show, setShow] = useState(false);
     const [parts, setParts] = useParts();
-    // console.log(parts);
     const navigate = useNavigate();
     const navigateToPurchase = (id) => {
         navigate(`/parts/purchase/${id}`)
@@ -19,14 +18,11 @@ const ManageOrders = () => {
     const [partId, setPartId] = useState(null);
     const [partName, setPartName] = useState(null);
     const displayModal = (id, name) => {
-        console.log(id, name);
         setPartId(id);
         setPartName(name);
 
     }
     const submitDelete = (partId, partName) => {
-        console.log("clicked", partName, partId);
-
         toast.success(`${partName} is deleted from the stock!`, {
             position: "bottom-right",
             autoClose: 3000,
@@ -47,7 +43,6 @@ const ManageOrders = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
-                    console.log("deletion successful");
                     const rest = parts.filter(part => part._id !== partId);
                     setParts(rest);
                 }

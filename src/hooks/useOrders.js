@@ -6,8 +6,6 @@ import auth from '../firebase.init';
 const useOrders = (email) => {
     const [orders, setOrders] = useState([]);
     const navigate = useNavigate();
-    // console.log(email);
-    // const email = user?.email;
     useEffect(() => {
         fetch(`https://murmuring-fortress-11429.herokuapp.com/orders?email=${email}`, {
             method: "GET",
@@ -17,7 +15,6 @@ const useOrders = (email) => {
             },
         })
             .then(res => {
-                console.log(res.status);
                 if (res.status === 401 || res.status === 403) {
                     signOut(auth);
                     localStorage.removeItem('accessToken');

@@ -57,7 +57,6 @@ const Purchase = () => {
         let newQuantity = parseInt(updateQuantity) + 1;
         if (newQuantity > parseInt(availableQuantity)) {
             setUpdateQuantity(newQuantity);
-            console.log(newQuantity, availableQuantity);
             setCheck(!check);
             setTimeout(function () {
                 toast.error(`You can't order more than ${availableQuantity} unit!`)
@@ -73,8 +72,6 @@ const Purchase = () => {
         }
     }
     const handleChangeQuantity = (event) => {
-        console.log(event.target.value);
-
         setUpdateQuantity(parseInt(event.target.value));
         setUpdatePrice((parseInt(event.target.value) * parseFloat(price)).toFixed(2));
         setCheck(check);
@@ -100,7 +97,6 @@ const Purchase = () => {
 
     //ONSUBMIT
     const onSubmit = async data => {
-        console.log(data);
         const quantity = document.getElementById('quantity').value;
         const total = document.getElementById('total').value;
         const updatedQuantity = parseInt(available_quantity) - parseInt(quantity);
@@ -127,10 +123,10 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Success:', data);
+                // console.log('Success:', data);
             })
             .catch((error) => {
-                console.error('Error:', error);
+                // console.error('Error:', error);
             });
         //POST
         fetch('https://murmuring-fortress-11429.herokuapp.com/orders', {

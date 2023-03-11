@@ -94,7 +94,7 @@ const Blogs = () => {
                         <div id="collapseSix" className="accordion-collapse" aria-labelledby="headingsix">
                             <div className="accordion-body py-4 px-5">
                                 <b>Unit testing</b> is a software development process in which the smallest testable parts of an application are called units for individually and independently scrutinizing them. This is done during the software development process by the software developers and QA Engineers.
-                              <b>  Unit tests</b> separate a function, class or method and only test that piece. Higher quality individual components build complete system resiliency. So, the process is reliable. Unit tests has also changed the nature of the debugging process.
+                                <b>  Unit tests</b> separate a function, class or method and only test that piece. Higher quality individual components build complete system resiliency. So, the process is reliable. Unit tests has also changed the nature of the debugging process.
 
                             </div>
                         </div>

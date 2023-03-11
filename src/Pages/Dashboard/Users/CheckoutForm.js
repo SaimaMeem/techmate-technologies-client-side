@@ -22,7 +22,6 @@ const CheckoutForm = ({ order }) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data?.clientSecret) {
-                        console.log(data);
                         setClientSecret(data.clientSecret);
                     }
 
@@ -73,7 +72,6 @@ const CheckoutForm = ({ order }) => {
         else {
             setCardError('');
             setTransactionId(paymentIntent?.id);
-            console.log(paymentIntent);
             setSuccess('Your payment is completed successfully!');
 
             //store payment on database
@@ -99,7 +97,6 @@ const CheckoutForm = ({ order }) => {
             }).then(res => res.json())
                 .then(data => {
                     setProcessing(false);
-                    console.log(data)
                 })
         }
 

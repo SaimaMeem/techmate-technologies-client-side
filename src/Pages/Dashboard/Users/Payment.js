@@ -23,7 +23,6 @@ const Payment = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
                 setOrder(data)
             })
             .catch((error) => {

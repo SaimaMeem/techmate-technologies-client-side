@@ -5,10 +5,8 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import PageTitle from '../../../shared/PageTitle';
 const AddPart = () => {
-    // console.log(users);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
-        console.log(data);
         const partDetails = {
             name: data.name,
             price: data.price,
@@ -18,7 +16,6 @@ const AddPart = () => {
             description: data.description,
 
         }
-        console.log(partDetails);
         // POST
         fetch(`https://murmuring-fortress-11429.herokuapp.com/parts/`, {
             method: 'POST',
@@ -30,7 +27,6 @@ const AddPart = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId) {
                     toast.success('A part has been added')
                     reset();

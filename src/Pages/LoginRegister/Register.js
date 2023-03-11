@@ -10,7 +10,6 @@ import { useForm } from 'react-hook-form';
 import useToken from '../../hooks/useToken';
 const Register = () => {
     const navigate = useNavigate();
-    // const location = useLocation();
     const [agree, setAgree] = useState(false);
     // let from = location?.state?.from?.pathname || "/";
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
@@ -20,40 +19,12 @@ const Register = () => {
     let divElement;
     const [token] = useToken(user);
     const onSubmit = async data => {
-        console.log(data)
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({
             displayName: data?.name,
             photoURL: 'https://i.ibb.co/QPVQmtf/users.png'
         });
         await sendEmailVerification();
-        console.log('Updated profile');
-        // navigate('/home');
-        // //POST
-        // const userDetails = {
-        //     username: data.name,
-        //     image: user?.photoURL || `https://i.ibb.co/QPVQmtf/users.png`,
-        //     email: data.email,
-        // }
-        // await fetch('https://murmuring-fortress-11429.herokuapp.com/users', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json',
-        //         // authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        //     },
-        //     body: JSON.stringify(userDetails),
-        // })
-        //     .then(res => res.json())
-        //     .then(inserted => {
-        //         if (inserted.insertedId) {
-        //             console.log('New user')
-        //         }
-        //         else {
-        //             console.log('error')
-        //         }
-        //     })
-
-
     };
 
     if (token) {

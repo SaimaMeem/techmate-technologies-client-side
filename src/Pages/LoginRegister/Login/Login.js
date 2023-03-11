@@ -20,7 +20,6 @@ const Login = () => {
     let from = location?.state?.from?.pathname || "/";
 
     const onSubmit = async (data) => {
-        console.log(data)
         signInWithEmailAndPassword(data.email, data.password);
 
     };

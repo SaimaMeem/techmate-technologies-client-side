@@ -1,14 +1,11 @@
 
 import React from 'react';
 import PageTitle from '../shared/PageTitle';
-// import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 import useParts from '../hooks/useParts';
-const AllOrders = () => {
-    // const [show, setShow] = useState(false);
+const AllParts = () => {
     const [parts, setParts] = useParts();
-    // console.log(parts);
     const navigate = useNavigate();
     const navigateToPurchase = (id) => {
         navigate(`/parts/purchase/${id}`)
@@ -42,7 +39,7 @@ const AllOrders = () => {
                                             <th scope="col" className="text-sm py-4 px-2 border-r">
                                                 Price
                                             </th>
-                            
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -82,4 +79,4 @@ const AllOrders = () => {
     );
 };
 
-export default AllOrders;
+export default AllParts;
