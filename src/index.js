@@ -14,17 +14,19 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query';
+import ScrollToTop from './shared/ScrollToTop';
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <QueryClientProvider client={queryClient}>
-  <HelmetProvider>
-  <BrowserRouter>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>
-  </HelmetProvider>
+    <HelmetProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </BrowserRouter>
+    </HelmetProvider>
   </QueryClientProvider>
 );
 
