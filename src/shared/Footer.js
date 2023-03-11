@@ -58,7 +58,7 @@ const Footer = () => {
                             About Techmate Technologies
                         </h6>
                         <p className="flex justify-center mb-4">
-                            <Link to="/aboutus" className="">About Us</Link>
+                            <Link to="#!" className="">About Us</Link>
                         </p>
                         <p className="flex justify-center mb-4">
                             <Link to="/home#business-summary" className="">Our Growth</Link>
