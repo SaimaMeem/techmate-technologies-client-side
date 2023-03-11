@@ -42,7 +42,7 @@ const Header = () => {
                     </button>
 
                     <div className="container-fluid">
-                        <Link className="flex items-center text-black mt-2 lg:mt-0 ml:20 pl-6 sm:pl-16 lg:ml-0" to="/home">
+                        <Link className="flex items-center text-black mt-2 lg:mt-0 ml:20 pl-6 sm:pl-16 lg:ml-0" to="/home#banner">
                             <img className="hidden mr-2 sm:block" src={brandLogo} style={{ height: "40px" }} alt="" loading="lazy" />
                             <div className='flex flex-col text-left font-logo-text'>
                                 <span className="font-bold text-xl">Techmate
@@ -56,7 +56,7 @@ const Header = () => {
                         <div className="collapse navbar-collapse flex-grow items-center justify-center" aria-hidden="true" id="navbarSupportedContent">
                             <ul className="navbar-nav flex flex-col list-style-none   absolute z-200 transition-all ul-items bg-light-off-white shadow-lg md:shadow-none text-black">
                                 <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
-                                    <Link className="nav-link text-black" to='/home'>Home</Link>
+                                    <Link className="nav-link text-black" to='/home#banner'>Home</Link>
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                     <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                 </li>
