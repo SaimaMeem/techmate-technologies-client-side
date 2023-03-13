@@ -54,15 +54,15 @@ const Header = () => {
                     </div>
                     <div className="container-fluid">
                         <div className="collapse navbar-collapse flex-grow items-center justify-center" aria-hidden="true" id="navbarSupportedContent">
-                            <ul className="navbar-nav flex flex-col list-style-none   absolute z-200 transition-all ul-items bg-light-off-white shadow-lg md:shadow-none text-black">
+                            <ul className="navbar-nav flex flex-col list-style-none   absolute z-200 transition-all ul-items bg-light-off-white shadow-lg lg:shadow-none text-black">
                                 <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
-                                    <Link className="nav-link text-black" to='/home#banner'>Home</Link>
+                                    <Link className="nav-link text-black py-3" to='/home#banner'>Home</Link>
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                     <span className="absolute bottom-0.5 right-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
                                 </li>
                                 <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
                                     <Link
-                                        className="nav-link text-black"
+                                        className="nav-link text-black py-3"
                                         to='/home#available-parts'
                                     >Available Parts</Link>
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
@@ -79,7 +79,7 @@ const Header = () => {
 
                                 <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
                                     <Link
-                                        className="nav-link text-black"
+                                        className="nav-link text-black py-3"
                                         to='/home#faqs'
                                     >FAQs</Link>
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
@@ -87,7 +87,7 @@ const Header = () => {
                                 </li>
                                 <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
                                     <Link
-                                        className="nav-link text-black"
+                                        className="nav-link text-black py-3"
                                         to='/home#reviews'
                                     >Reviews</Link>
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
@@ -95,7 +95,7 @@ const Header = () => {
                                 </li>
                                 {/* <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
                                     <Link
-                                        className="nav-link text-black"
+                                        className="nav-link text-black py-3"
                                         to='/blogs'
                                     >Blogs</Link>
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
@@ -103,7 +103,7 @@ const Header = () => {
                                 </li> */}
                                 {/* <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
                                     <Link
-                                        className="nav-link text-black"
+                                        className="nav-link text-black py-3"
                                         to='/portfolio'
                                     >Portfolio</Link>
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
@@ -111,7 +111,7 @@ const Header = () => {
                                 </li> */}
                                 <li className="nav-item p-2 relative w-max two hover:font-bold  active:bg-off-white px-3 py-2 rounded-md">
                                     <Link
-                                        className="nav-link text-black"
+                                        className="nav-link text-black py-3"
                                         to='/dashboard'
                                     >Dashboard</Link>
                                     <span className="absolute bottom-0.5 left-1/2 w-0 transition-all h-1 bg-sky-blue"></span>
