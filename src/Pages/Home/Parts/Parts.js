@@ -13,7 +13,7 @@ const Parts = () => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
-        }, 1800);
+        }, 2500);
     }, []);
     return (
         <section className='my-14' id='available-parts'>
